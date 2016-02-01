@@ -1,0 +1,66 @@
+/** STIL CLASS CSS - stil/_class.scss **/
+
+//MAIN COLORS
+$colorA: #7B1FA2;
+$colorALL: lighten($colorA,10%);
+$colorAL: lighten($colorA,5%);
+$colorAD: darken($colorA,5%);
+$colorADD: darken($colorA,10%);
+
+$colorB: #7C4DFF;
+$colorBLL: lighten($colorB,10%);
+$colorBL: lighten($colorB,5%);
+$colorBD: darken($colorB,5%);
+$colorBDD: darken($colorB,10%);
+
+$colorC: #00796B;
+$colorCLL: lighten($colorC,10%);
+$colorCL: lighten($colorC,5%);
+$colorCD: darken($colorC,5%);
+$colorCDD: darken($colorC,10%);
+
+//OTHER-COLORS
+$blue: #006edd;
+$blueLL: lighten($blue,10%);
+$blueL: lighten($blue,5%);
+$blueD: darken($blue,5%);
+$blueDD: darken($blue,10%);
+
+$red: #f01e10; 
+$redLL: lighten($red,10%);
+$redL: lighten($red,5%);
+$redD: darken($red,5%);
+$redDD: darken($red,10%);
+
+$orange: #ff560b;
+$orangeLL: lighten($orange,10%);
+$orangeL: lighten($orange,5%);
+$orangeD: darken($orange,5%);
+$orangeDD: darken($orange,10%);
+
+$yellow: #ffba00;
+$yellowLL: lighten($yellow,10%);
+$yellowL: lighten($yellow,5%);
+$yellowD: darken($yellow,5%);
+$yellowDD: darken($yellow,10%);
+
+$green: #1baf21;
+$greenLL: lighten($green,10%);
+$greenL: lighten($green,5%);
+$greenD: darken($green,5%);
+$greenDD: darken($green,10%);
+
+//TEXT-COLORS
+$text: #212121;
+$textL: #5d5d5d;
+$textLL: #a9a9a9;
+
+//SOCIAL-COLORS
+$fb: #3b5998;
+$tw: #00aced;
+$gp: #dd4b39;
+$yt: #bb0000;
+$ln: #007bb5;
+$in: #125688;
+$wh: #4dc247;
+$pn: #cb2027;

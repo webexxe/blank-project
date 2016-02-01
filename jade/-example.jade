@@ -1,0 +1,95 @@
+extends duzen/iskelet.jade
+
+block baslik
+	| Framework Example
+
+block body
+	.container
+		.row
+			.col-xs-12.mb-30.pt-30
+				h2 FORM CHECKBOX - RADIO
+				p.mb-30
+					+lorem([18,30])
+				h3.mb-15 İCON
+				.row.mb-30
+					.col-xs-12.col-md-4
+						label.check-icon
+							input(type="checkbox")
+							i.flaticon-black399
+							| İcon ile checkbox
+					.col-xs-12.col-md-4
+						label.check-icon
+							input(type="radio" name="radio")
+							i.flaticon-circle108
+							| İcon ile radio
+					.col-xs-12.col-md-4
+						label.check-icon
+							input(type="radio" name="radio")
+							i.flaticon-circle108
+							| İcon ile radio
+				h3.mb-15 LABEL:AFTER-BEFORE
+				.row.mb-30
+					.col-xs-12.col-md-4
+						input.check(type="checkbox" id="check-test-1")
+						label(for="check-test-1") After Before ile checkbox
+					.col-xs-12.col-md-4
+						input.check(type="radio" id="check-test-2" name="radio2")
+						label(for="check-test-2") After Before ile radio
+					.col-xs-12.col-md-4
+						input.check(type="radio" id="check-test-3" name="radio2")
+						label(for="check-test-3") After Before ile radio
+			.col-xs-12
+				h2.title(data-before=" < " data-after=" > ") Başlık
+			.col-xs-12.mb-30.pt-30
+				h2 TABLE-RESPONSIVE
+				p
+					+lorem([18,30])
+				.table-responsive
+					table
+						thead
+							tr
+								th Name
+								th Item Name
+								th Item Price
+								th Item Sucsess
+								th Item Mantyi
+						tbody
+							-for(var i = 0; i < 7; i++){
+								tr
+									td
+										+lorem([2,4])
+									td
+										+lorem([2,4])
+									td
+										+lorem([2,4])
+									td
+										+lorem([2,4])
+									td
+										+lorem([2,4])
+							-}
+			.col-xs-12.mb-30
+				h2 TABLE.RESPONSIVE
+				p
+					+lorem([18,30])
+				table.responsive
+					thead
+						tr
+							th Name
+							th Item Name
+							th Item Price
+							th Item Sucsess
+							th Item Mantyi
+					tbody
+						-for(var i = 0; i < 7; i++){
+							tr
+								td
+									+lorem([2,4])
+								td
+									+lorem([2,4])
+								td
+									+lorem([2,4])
+								td
+									+lorem([2,4])
+								td
+									+lorem([2,4])
+						-}

@@ -1,0 +1,77 @@
+/** STIL FRAMEWORK CSS - stil/_framework.scss **/
+//RESET
+a {
+	color: $colorB;
+	@include anims(200ms);
+}
+
+a:-webkit-any-link {
+	text-decoration: none;
+}
+
+a:-moz-any-link {
+	text-decoration: none;
+}
+
+*:focus,
+*:visited,
+*:active {
+	outline: none;
+}
+
+a:hover,
+a:active,
+a:visited {
+	text-decoration: none;
+}
+
+h1,h2,h3,h4,h5,h6{
+	margin: 0;
+}
+
+ul,
+li {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	transform-style: flat !important;
+	-webkit-transform-style: flat !important;
+}
+
+label{
+	cursor: pointer;
+}
+
+table{
+	width: 100%;
+	display: table;
+
+	thead{
+		border-bottom: 1px solid #d0d0d0;
+	}
+
+	td, th {
+		padding: 10px;
+		display: table-cell;
+		text-align: left;
+		vertical-align: middle;
+		border-radius: 2px;
+	}
+}
+
+.mask{
+	display: none;
+	background: rgba(0,0,0,0.8);
+	position: fixed;
+	z-index: 9990;
+	width: 110%;
+	height: 120%;
+	top: 0;
+	left: 0;
+	right: 0;
+}

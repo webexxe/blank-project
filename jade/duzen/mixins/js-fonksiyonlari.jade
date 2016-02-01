@@ -1,0 +1,45 @@
+- birlestir = function(obj1, obj2) {
+	- var yeni = {};
+
+	- for (var attrname in obj2)
+		- yeni[attrname] = obj2[attrname];
+
+	- for (var attrname in obj1)
+		- yeni[attrname] = obj1[attrname];
+	
+	- return yeni;	
+- }
+
+- rastgele = function(dizi) {
+	- var fark = Math.abs(dizi[1] - dizi[0])
+
+	- return Math.floor(Math.random()*fark) + Math.min(dizi[0], dizi[1])
+- }
+
+- function randomDate(start, end) {
+	- return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+-}
+
+- function tarih() {
+	-var date = randomDate(new Date(2012, 0, 1), new Date(2020, 0, 1))
+	-var gun = date.getDate() + 1, ay = date.getMonth() + 1, yil = date.getFullYear(), saat = date.getHours(), dakika = date.getMinutes()
+	if gun < 10
+		-gun = "0" + gun
+	if ay < 10
+		-ay = "0" + ay
+	if saat < 10
+		-saat = "0" + saat
+	if dakika < 10
+		-dakika = "0" + dakika
+	- return gun + "." + ay + "." + yil + " - " + saat + ":" + dakika	
+- }
+
+- function saat() {
+	-var date = randomDate(new Date(2012, 0, 1), new Date(2020, 0, 1))
+	-var saat = date.getHours(), dakika = date.getMinutes()
+	if saat < 10
+		-saat = "0" + saat
+	if dakika < 10
+		-dakika = "0" + dakika
+	- return saat + ":" + dakika	
+- }

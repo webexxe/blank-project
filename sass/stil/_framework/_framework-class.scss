@@ -1,0 +1,345 @@
+/** STIL FRAMEWORK CSS - stil/_framework.scss **/
+//CLASS
+
+.clear:after,
+ul:after,
+li:after,
+ol:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.short {
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.no-scroll {
+	height: 100vh;
+	overflow: hidden;
+}
+
+.img-responsiveX {
+	max-width: inherit;
+	width: 100%;
+}
+
+//DATA BEFORE - AFTER
+*[data-before]{
+	&:before{
+		content: attr(data-before);
+	}
+}
+
+*[data-after]{
+	&:after{
+		content: attr(data-after);
+	}
+}
+
+//MARGIN STATUS
+.mb-5{margin-bottom: 5px;}
+.mb-10{margin-bottom: 10px;}
+.mb-15{margin-bottom: 15px;}
+.mb-20{margin-bottom: 20px;}
+.mb-25{margin-bottom: 25px;}
+.mb-30{margin-bottom: 30px;}
+.mb-35{margin-bottom: 35px;}
+.mb-40{margin-bottom: 40px;}
+.mb-45{margin-bottom: 45px;}
+.mb-50{margin-bottom: 50px;}
+
+.mt-5{margin-top: 5px;}
+.mt-10{margin-top: 10px;}
+.mt-15{margin-top: 15px;}
+.mt-20{margin-top: 20px;}
+.mt-25{margin-top: 25px;}
+.mt-30{margin-top: 30px;}
+.mt-35{margin-top: 35px;}
+.mt-40{margin-top: 40px;}
+.mt-45{margin-top: 45px;}
+.mt-50{margin-top: 50px;}
+
+.mr-5{margin-right: 5px;}
+.mr-10{margin-right: 10px;}
+.mr-15{margin-right: 15px;}
+.mr-20{margin-right: 20px;}
+.mr-25{margin-right: 25px;}
+.mr-30{margin-right: 30px;}
+.mr-35{margin-right: 35px;}
+.mr-40{margin-right: 40px;}
+.mr-45{margin-right: 45px;}
+.mr-50{margin-right: 50px;}
+
+.ml-5{margin-left: 5px;}
+.ml-10{margin-left: 10px;}
+.ml-15{margin-left: 15px;}
+.ml-20{margin-left: 20px;}
+.ml-25{margin-left: 25px;}
+.ml-30{margin-left: 30px;}
+.ml-35{margin-left: 35px;}
+.ml-40{margin-left: 40px;}
+.ml-45{margin-left: 45px;}
+.ml-50{margin-left: 50px;}
+
+//PADDING STATUS
+.pb-5{padding-bottom: 5px;}
+.pb-10{padding-bottom: 10px;}
+.pb-15{padding-bottom: 15px;}
+.pb-20{padding-bottom: 20px;}
+.pb-25{padding-bottom: 25px;}
+.pb-30{padding-bottom: 30px;}
+.pb-35{padding-bottom: 35px;}
+.pb-40{padding-bottom: 40px;}
+.pb-45{padding-bottom: 45px;}
+.pb-50{padding-bottom: 50px;}
+
+.pt-5{padding-top: 5px;}
+.pt-10{padding-top: 10px;}
+.pt-15{padding-top: 15px;}
+.pt-20{padding-top: 20px;}
+.pt-25{padding-top: 25px;}
+.pt-30{padding-top: 30px;}
+.pt-35{padding-top: 35px;}
+.pt-40{padding-top: 40px;}
+.pt-45{padding-top: 45px;}
+.pt-50{padding-top: 50px;}
+
+.pr-5{padding-right: 5px;}
+.pr-10{padding-right: 10px;}
+.pr-15{padding-right: 15px;}
+.pr-20{padding-right: 20px;}
+.pr-25{padding-right: 25px;}
+.pr-30{padding-right: 30px;}
+.pr-35{padding-right: 35px;}
+.pr-40{padding-right: 40px;}
+.pr-45{padding-right: 45px;}
+.pr-50{padding-right: 50px;}
+
+.pl-5{padding-left: 5px;}
+.pl-10{padding-left: 10px;}
+.pl-15{padding-left: 15px;}
+.pl-20{padding-left: 20px;}
+.pl-25{padding-left: 25px;}
+.pl-30{padding-left: 30px;}
+.pl-35{padding-left: 35px;}
+.pl-40{padding-left: 40px;}
+.pl-45{padding-left: 45px;}
+.pl-50{padding-left: 50px;}
+
+//POSITION STATUS
+
+.position-fixed{position: fixed !important;}
+.position-absolute{position: absolute !important;}
+.position-relative{position: relative !important;}
+.position-static{position: static !important;}
+
+//HOVER STATUS
+
+.hvrL{
+	@include anims(200ms);
+	box-shadow: inset 0 0 0 500px rgba(255, 255, 255, 0);
+
+	&:hover{
+		box-shadow: inset 0 0 0 500px rgba(255, 255, 255, 0.15);
+	}
+}
+
+.hvrD{
+	@include anims(200ms);
+	box-shadow: inset 0 0 0 500px rgba(0, 0, 0, 0);
+
+	&:hover{
+		box-shadow: inset 0 0 0 500px rgba(0, 0, 0, 0.15);
+	}
+}
+
+.hvrO{
+	@include anims(200ms);
+
+	&:hover{
+		opacity: 0.8;
+	}
+}
+
+//FORM ELEMENTS
+input:not([type="checkbox"]):not([type="radio"]),
+select,
+textarea,
+button{
+	border: solid 1px rgba(0, 0, 0, 0.1);
+	height: 40px;
+	padding: 0 15px;
+	min-width: 120px;
+}
+
+textarea{
+	padding: 10px 15px;
+	height: 80px;
+
+	&.no-size{
+		resize: none;
+	}
+}
+
+input[type="submit"],
+button{
+	text-align: center;
+}
+
+label.check-icon{
+	input{
+		display: none;
+
+		& ~	i {
+			color: $textLL;
+			font-size: 23px;
+			display: inline-block;
+			vertical-align: middle;
+			margin-right: 5px;
+		}
+
+		&:checked{
+			& ~ i{
+				color: $colorB;
+			}
+
+		}
+	}
+}
+
+input.check{
+	display: none;
+
+	&[type="checkbox"]{
+
+		& + label{
+			position: relative;
+			display: inline-block;
+			height: 20px;
+			padding-left: 25px;
+
+			&:before{
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 18px;
+				height: 18px;
+				background-color: #fff;
+				box-shadow: inset 0 0 0 1px $textLL;
+				border-radius:2px;
+			}
+		}
+
+		&:checked + label{
+			&:before{
+				box-shadow: inset 0 0 0 1px $colorB;
+				background-color: $colorB;
+			}
+
+			&:after{
+				content: "";
+				width: 11px;
+				height: 6px;
+				display: block;
+				position: absolute;
+				border-bottom: solid 1px #fff;
+				border-left: solid 1px #fff;
+				left: 4px;
+				top: 4px;
+				transform: rotate(-45deg);
+			}
+		}
+	}
+
+	&[type="radio"]{
+
+		& + label{
+			position: relative;
+			display: inline-block;
+			height: 20px;
+			padding-left: 25px;
+
+			&:before{
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 18px;
+				height: 18px;
+				background-color: #fff;
+				box-shadow: inset 0 0 0 1px $textLL;
+				border-radius:50%;
+			}
+		}
+
+		&:checked + label{
+
+			&:before{
+				box-shadow: inset 0 0 0 1px $colorB;
+				background-color: $colorB;
+			}
+
+			&:after{
+				content: "";
+				position: absolute;
+				top: 3px;
+				left: 3px;
+				width: 12px;
+				height: 12px;
+				border-radius:50%;
+				box-shadow: inset 0 0 0 2px #fff;
+			}
+		}
+	}
+}
+
+// TABLET 2 DEVICES
+@media (max-width: $devices-sm) {
+	table.responsive{
+		width: 100%;
+		border-collapse: collapse;
+		border-spacing: 0;
+		display: block;
+		position: relative;
+
+		thead{
+			border: 0;
+			float: left;
+			border-right: 1px solid #d0d0d0;
+
+			tr{
+				display: block;
+				padding: 0 10px 0 0;
+
+				th{
+					display: block;
+					text-align: right;
+				}
+			}
+		}
+
+		tbody{
+			display: block;
+			width: auto;
+			position: relative;
+			overflow-x: auto;
+			white-space: nowrap;
+
+			tr{
+				display: inline-block;
+				vertical-align: top;
+
+				td{
+					display: block;
+					min-height: 1.25em;
+					text-align: left;
+				}
+			}
+		}
+	}
+}

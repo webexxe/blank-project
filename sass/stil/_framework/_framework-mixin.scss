@@ -1,0 +1,57 @@
+/** STIL FRAMEWORK CSS - stil/_framework.scss **/
+
+//DEVICES VARIABLES
+$devices-md: $screen-lg - 1;
+$devices-sm: $screen-md - 1;
+$devices-xs: $screen-sm - 1;
+$devices-xxs: 374px;
+
+//MIXINS
+//HOVER MIXIN
+@mixin hvrL($default, $value){
+	@include anims(200ms);
+	box-shadow: inset 0 0 0 500px rgba(255, 255, 255, $default);
+
+	&:hover{
+		box-shadow: inset 0 0 0 500px rgba(255, 255, 255, $value);
+	}
+}
+
+@mixin hvrD($default, $value){
+	@include anims(200ms);
+	box-shadow: inset 0 0 0 500px rgba(0, 0, 0, $default);
+
+	&:hover{
+		box-shadow: inset 0 0 0 500px rgba(0, 0, 0, $value);
+	}
+}
+
+@mixin hvrO($default, $value){
+	@include anims(200ms);
+	opacity: $default;
+
+	&:hover{
+		opacity: $value;
+	}
+}
+
+//ANIMATE MIXIN
+@mixin anims($animMS) {
+	transition: all $animMS ease;
+}
+
+//BORDER RADIUS MIXIN
+@mixin bradius($radiusPX) {
+	border-radius: $radiusPX;
+}
+
+@mixin bradiusCustom(
+	$radiusPXa,
+	$radiusPXb,
+	$radiusPXc,
+	$radiusPXd) {
+		border-top-left-radius: $radiusPXa;
+		border-top-right-radius: $radiusPXb;
+		border-bottom-right-radius: $radiusPXc;
+		border-bottom-left-radius: $radiusPXd;
+}
