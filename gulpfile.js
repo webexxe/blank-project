@@ -12,38 +12,38 @@ gulp.task('jade', function(){
 			.pipe(jade({
 				pretty: true
 			}))
-			.pipe(gulp.dest('-dist/'))
+			.pipe(gulp.dest('export/'))
 });
 
 gulp.task('sass', function () {
 	gulp.src('sass/**/*.scss')
 			.pipe(sass().on('error', sass.logError))
 			.pipe(sass({outputStyle: 'compressed'}))
-			.pipe(gulp.dest('-dist/css'))
+			.pipe(gulp.dest('export/css'))
 });
 
 gulp.task('cssprefix', function () {
-	return gulp.src('-dist/css/sass.css')
+	return gulp.src('export/css/sass.css')
 			.pipe(autoprefixer({
 				browsers: ['last 2 versions'],
 				cascade: true
 			}))
 			.pipe(concat('style.css'))
-			.pipe(gulp.dest('-dist/css/'));
+			.pipe(gulp.dest('export/css/'));
 });
 
 gulp.task('jsMin', function () {
 	gulp.src(['js/**/*.js','!js/**/_*.js'])
 			.pipe(jsmin())
 			.pipe(rename({suffix: '.min'}))
-			.pipe(gulp.dest('-dist/js'));
+			.pipe(gulp.dest('export/js'));
 });
 
 gulp.task('scripts',function(){
-	gulp.src(['-dist/js/*.js','!-dist/js/scripts.js'])
+	gulp.src(['export/js/*.js','!export/js/scripts.js'])
 			.pipe(uglify())
 			.pipe(concat('scripts.js'))
-			.pipe(gulp.dest('-dist/js'))
+			.pipe(gulp.dest('export/js'))
 });
 
 
@@ -51,7 +51,7 @@ gulp.task('watch',function(){
 	gulp.watch('jade/**/*.jade',['jade']);
 	gulp.watch('sass/**/*.scss',['sass','cssprefix']);
 	gulp.watch(['js/**/*.js','!js/**/_*.js'],['jsMin']);
-	gulp.watch(['-dist/js/*.js','!-dist/js/scripts.js'],['scripts']);
+	gulp.watch(['export/js/*.js','!export/js/scripts.js'],['scripts']);
 
 });
 
