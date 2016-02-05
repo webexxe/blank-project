@@ -9,28 +9,33 @@ doctype html
 html(lang="tr")
 	head
 		meta(charset="UTF-8")
-		title 
+		title
 			block baslik
 		meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+		//BROWSER COLOR
+		meta(name='theme-color', content='#333333')
+		meta(name='msapplication-navbutton-color', content='#333333')
+		meta(name='apple-mobile-web-app-status-bar-style', content='#333333')
+		//CSS IMPORT
 		link(rel="stylesheet" type="text/css" href="css/font/flaticon.css")
 		link(rel="stylesheet" type="text/css" href="css/style.css")
-		// SEO META 
+		//SEO META
 		meta(name="description" content="")
 		meta(name="keywords" content="")
 		meta(name="Author" content="")
 		meta(name="robots" content="index, follow")
 	body
 		.mask
-		//HEADER ALANI 
+		//HEADER ALANI
 		header#header
 			include header
-		//ICERIK ALANI 
+		//ICERIK ALANI
 		main#content
 			block body
-		//FOOTER 
+		//FOOTER
 		footer#footer
 			include footer
-		//JS IMPORT 
+		//JS IMPORT
 		script(src="js/jquery-1.11.3.min.js")
 		script(src="js/bootstrap.min.js")
 		script(src="js/scroll.min.js")
