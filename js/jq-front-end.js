@@ -9,13 +9,26 @@ $(function () {
 
     // MOBIL - PC AYIRMAK
 
-    var mobile = (/iphone|ipod|ipad|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()))
+    var mobile = (/iphone|ipod|ipad|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));
     if (mobile) {
         $("body").addClass("mobil");
     } else {
         $("body").addClass("desktop");
         smothScroll();
     }
+
+    //--------------------------------------------------------------------------------------------------------------------------------------//
+
+    //SCROLL GO TO
+
+    $.scrollgoto = function (target, topPx) {
+        topPx = topPx == undefined ? 0 : topPx;
+        setTimeout(function () {
+            $('html, body').animate({
+                scrollTop: $(target).offset().top - topPx
+            }, 500);
+        }, 300);
+    };
 
     //--------------------------------------------------------------------------------------------------------------------------------------//
 
@@ -58,24 +71,24 @@ $(function () {
             $(".maske").fadeIn(200);
             $(".maske").attr("data-hedef", hedef);
         }
-    }
+    };
 
     //TETIKLEYEREK ACILAN
     $.popupA = function (hedef) {
         $(".popupA[data-hedef=" + hedef + "]").fadeToggle(200);
         $(".maske").fadeToggle(200);
         $(".maske").attr("data-hedef", hedef);
-    }
+    };
     $.popupAin = function (hedef) {
         $(".popupA[data-hedef=" + hedef + "]").fadeIn(200);
         $(".maske").fadeIn(200);
         $(".maske").attr("data-hedef", hedef);
-    }
+    };
     $.popupAout = function (hedef) {
         $(".popupA[data-hedef=" + hedef + "]").fadeOut(200);
         $(".maske").fadeOut(200);
         $(".maske").removeAttr("data-hedef");
-    }
+    };
 
     //$.popup("hataAlert");
     //$.popupAin("hataAlert");
@@ -116,7 +129,7 @@ $(function () {
             // popupAlert ILE OLUSTURULAN ISKELETI SILER
             if ($(".popupA[data-hedef='" + hedef + "']").hasClass(alertClass)) $(".popupA[data-hedef=" + hedef + "]").remove();
         }
-    })
+    });
 
     //--------------------------------------------------------------------------------------------------------------------------------------//
 
@@ -288,11 +301,11 @@ $(function () {
     var time = {
             down: 0,
             up: 0,
-            suAn: 0,
+            suAn: 0
         },
         pos = {
             ilk: {x: 0, y: 0},
-            suAn: {x: 0, y: 0},
+            suAn: {x: 0, y: 0}
         },
         mouseDown = false,
         lastTarget,
@@ -302,13 +315,13 @@ $(function () {
         return this.every(function (el) {
             return el
         })
-    }
+    };
 
     Array.prototype.biri = function () {
         return this.some(function (el) {
             return el
         })
-    }
+    };
 
     var holdTimeOutHandler = function () {
 
@@ -322,7 +335,7 @@ $(function () {
         if (sartlar.tumu())
             $(lastTarget).trigger("hold", [data]);
 
-    }
+    };
 
     var downHandler = function (e) {
 
@@ -340,15 +353,15 @@ $(function () {
 
             lastTarget = e.target;
 
-            data.time = time,
-                data.pos = pos;
+            data.time = time;
+            data.pos = pos;
             data.lastTarget = lastTarget;
 
             $(e.target).trigger("swipeStart", [data]);
 
             setTimeout(holdTimeOutHandler, holdTime);
         }
-    }
+    };
 
     var moveHandler = function (e) {
 
@@ -364,7 +377,7 @@ $(function () {
             $(lastTarget).trigger("swipe", [data]);
 
         }
-    }
+    };
 
     var upHandler = function (e) {
         if (mouseDown) {
@@ -383,7 +396,7 @@ $(function () {
 
             var sartlar = [
                 farkX > swipeDeadZone,
-                farkY > swipeDeadZone,
+                farkY > swipeDeadZone
             ];
 
             if (sartlar.biri()) {
@@ -410,11 +423,11 @@ $(function () {
             }
 
         }
-    }
+    };
 
     var errorHandler = function () {
         mouseDown = false;
-    }
+    };
 
     if (typeof $d === 'undefined')
         $d = $(document);
