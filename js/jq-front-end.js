@@ -21,13 +21,15 @@ $(function () {
 
     //SCROLL GO TO
 
-    $.scrollgoto = function (target, topPx) {
-        topPx = topPx == undefined ? 0 : topPx;
+    $.scrollgoto = function (target, top, speed, delay) {
+        top = top == undefined ? 0 : top;
+        speed = speed == undefined ? 300 : speed;
+        delay = delay == undefined ? 0 : delay;
         setTimeout(function () {
             $('html, body').animate({
-                scrollTop: $(target).offset().top - topPx
-            }, 500);
-        }, 300);
+                scrollTop: $(target).offset().top - top
+            }, speed);
+        }, delay);
     };
 
     //--------------------------------------------------------------------------------------------------------------------------------------//
