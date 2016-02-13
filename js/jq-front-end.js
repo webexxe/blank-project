@@ -154,25 +154,25 @@ $(function () {
 
     //--------------------------------------------------------------------------------------------------------------------------------------//
 
-    //TAB SISTEMI
-    $(".tab-menu .menu").on("click", function () {
+    //TAB SYSTEM
+    $(".tab-menu .t-menu").on("click", function () {
         var tabMenu = $(this).parents(".tab-menu");
-        var tabTarget = $(this).parents(".tab-menu").attr("data-tabTarget");
+        var tabTarget = $(this).parents(".tab-menu").attr("data-tab-target");
         var target = $(this).attr("data-target");
         tabTarget = $(".tab-content#" + tabTarget);
 
         //MENU ACTIVE SELECT
-        tabMenu.find(".menu").removeClass("active");
+        tabMenu.find(".t-menu").removeClass("active");
         $(this).addClass("active");
 
         //CONTENT ACTIVE SELECT
-        tabTarget.find(".content").removeClass("active");
-        tabTarget.find(".content." + target).addClass("active");
+        tabTarget.find(".t-content").removeClass("active");
+        tabTarget.find("#" + target + ".t-content").addClass("active");
     });
 
     // URL #name CONTENT ACTIVE SELECT
     var tabName = window.location.href.slice(window.location.href.indexOf('#'));
-    $(".tab-menu .menu[href='" + tabName + "']").click();
+    $(".tab-menu .t-menu[href='" + tabName + "']").click();
 
     //--------------------------------------------------------------------------------------------------------------------------------------//
 

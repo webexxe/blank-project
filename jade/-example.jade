@@ -5,6 +5,7 @@ block baslik
 
 block body
 	.container
+		//- RADIO BUTTON AND CHECKBOX
 		.row
 			.col-xs-12.mb-30.pt-30
 				h2 FORM CHECKBOX - RADIO
@@ -38,8 +39,12 @@ block body
 					.col-xs-12.col-md-4
 						input.check(type="radio" id="check-test-3" name="radio2")
 						label(for="check-test-3") After Before ile radio
+		//- AFTER BEFORE CONTENT
+		.row
 			.col-xs-12
-				h2.title(data-before=" < " data-after=" > ") Başlık
+				h2.title(data-before=" < " data-after=" > ") TİTLE
+		//- RESPONSIVE TABLE
+		.row
 			.col-xs-12.mb-30.pt-30
 				h2 TABLE-RESPONSIVE
 				p
@@ -93,3 +98,47 @@ block body
 								td
 									+lorem([2,4])
 						-}
+			.col-xs-12.mb-30
+				h2 TABLE.BLOCKED-RESPONSIVE
+				p
+					+lorem([18,30])
+				table.blocked-responsive
+					thead
+						tr
+							th Name
+							th Item Name
+							th Item Price
+							th Item Sucsess
+							th Item Mantyi
+					tbody
+						-for(var i = 0; i < 7; i++){
+							tr
+								td(data-th="Name")
+									+lorem([2,4])
+								td(data-th="Item Name")
+									+lorem([2,4])
+								td(data-th="Item Price")
+									+lorem([2,4])
+								td(data-th="Item Sucsess")
+									+lorem([2,4])
+								td(data-th="Item Mantyi")
+									+lorem([2,4])
+						-}
+		//- TAB SYSTEM
+		.row
+			.col-xs-12.mb-30
+				h2 TAB EXAMPLE 1
+				.tab-menu(data-tab-target="main-tab")
+					.t-menu(data-target="tab1").active Tab Menü 1
+					.t-menu(data-target="tab2") Tab Menü 2
+				.tab-content(id="main-tab")
+					.t-content(id="tab1").active Tab İçerik 1
+					.t-content(id="tab2") Tab İçerik 2
+			.col-xs-12.mb-30
+				h2 TAB EXAMPLE 2 (a href)
+				.tab-menu(data-tab-target="main-tab-2")
+					a(href="#a-tab1" data-target="a-tab1").t-menu.active Tab Menü 1
+					a(href="#a-tab2" data-target="a-tab2").t-menu Tab Menü 2
+				.tab-content(id="main-tab-2")
+					.t-content(id="a-tab1").active Tab İçerik 1
+					.t-content(id="a-tab2") Tab İçerik 2
