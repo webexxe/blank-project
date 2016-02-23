@@ -7,7 +7,7 @@
 	- for (var attrname in obj1)
 		- yeni[attrname] = obj1[attrname];
 	
-	- return yeni;	
+	- return yeni;
 - }
 
 - rastgele = function(dizi) {
@@ -20,6 +20,8 @@
 	- return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
 -}
 
+//- OTHER FUNCTIONS
+
 - function tarih() {
 	-var date = randomDate(new Date(2012, 0, 1), new Date(2020, 0, 1))
 	-var gun = date.getDate() + 1, ay = date.getMonth() + 1, yil = date.getFullYear(), saat = date.getHours(), dakika = date.getMinutes()
@@ -31,7 +33,7 @@
 		-saat = "0" + saat
 	if dakika < 10
 		-dakika = "0" + dakika
-	- return gun + "." + ay + "." + yil + " - " + saat + ":" + dakika	
+	= gun + "." + ay + "." + yil + " - " + saat + ":" + dakika
 - }
 
 - function saat() {
@@ -41,5 +43,16 @@
 		-saat = "0" + saat
 	if dakika < 10
 		-dakika = "0" + dakika
-	- return saat + ":" + dakika	
+	= saat + ":" + dakika
+- }
+
+- function saveDate() {
+	-var date = new Date();
+	-var day = date.getDate();
+	-var month = date.getMonth() + 1;
+		- month = month < 10 ? "0"+month:month;
+	-var year = date.getFullYear();
+	-var hour = date.getHours();
+	-var min = date.getMinutes() +1;
+	= day + "-" + month + "-" + year + " " + hour + ":" + min
 - }

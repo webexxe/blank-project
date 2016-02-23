@@ -1,13 +1,13 @@
 $(function () {
 
-    //DEGISKENLER
+    //--------------------------------------------------------------------------------------------------------------------------------------//
+    //VARIABLES
 
     var sizew = $(window).width();
     var sizeh = $(window).height();
 
     //--------------------------------------------------------------------------------------------------------------------------------------//
-
-    // MOBIL - PC AYIRMAK
+    // MOBILE - DESKTOP
 
     var mobile = (/iphone|ipod|ipad|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));
     if (mobile) {
@@ -18,7 +18,6 @@ $(function () {
     }
 
     //--------------------------------------------------------------------------------------------------------------------------------------//
-
     //SCROLL GO TO
 
     $.scrollgoto = function (target, top, speed, delay) {
@@ -33,13 +32,11 @@ $(function () {
     };
 
     //--------------------------------------------------------------------------------------------------------------------------------------//
-
     //TOOLTIP BOOTSTRAP
 
     $('[data-toggle="tooltip"]').tooltip();
 
     //--------------------------------------------------------------------------------------------------------------------------------------//
-
     //POPUPA OLAYLARI
 
     //READY ACILAN
@@ -134,7 +131,6 @@ $(function () {
     });
 
     //--------------------------------------------------------------------------------------------------------------------------------------//
-
     //TOOGLE BTN OLAYLARI
 
     $(".toggleBtn").on("click", function (event) {
@@ -144,7 +140,6 @@ $(function () {
     });
 
     //--------------------------------------------------------------------------------------------------------------------------------------//
-
     //TOOGLE BTN CLASLI OLAYLAR
 
     $(".toggleAktifBtn").on("click", function (event) {
@@ -153,7 +148,6 @@ $(function () {
     });
 
     //--------------------------------------------------------------------------------------------------------------------------------------//
-
     //TAB SYSTEM
     $(".tab-menu .t-menu").on("click", function () {
         var tabMenu = $(this).parents(".tab-menu");
@@ -175,7 +169,6 @@ $(function () {
     $(".tab-menu .t-menu[href='" + tabName + "']").click();
 
     //--------------------------------------------------------------------------------------------------------------------------------------//
-
     //GENISLIK YUKSEKLIK DEGISTIGINDE
 
     (function ($) {
@@ -287,14 +280,13 @@ $(function () {
     });
 
     $(window).on("genDegisti", function () {
-        console.log(sizew);
-    })
+        //console.log(sizew);
+    });
     $(window).on("yukDegisti", function () {
-        console.log(sizeh);
-    })
+        //console.log(sizeh);
+    });
 
     //--------------------------------------------------------------------------------------------------------------------------------------//
-
     //SWIPE PARMAK KAYDIRMA HAREKETLERI
 
     var swipeDeadZone = 50,
@@ -447,12 +439,12 @@ $(function () {
     $d.on("touchcancel", upHandler);
 
     $("body.mobil").on("swipeLeft", function () {
-        console.log("swipeLeft")
+        //console.log("swipeLeft")
     });
     $("body.mobil").on("swipeRight", function () {
-        console.log("swipeRight")
+        //console.log("swipeRight")
     });
 
     //--------------------------------------------------------------------------------------------------------------------------------------//
 
-})   
+});

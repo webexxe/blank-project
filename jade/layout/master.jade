@@ -1,11 +1,16 @@
-//- Aktarılanlar 
+//- MIXINS
 include mixins/lorem
 
 doctype html
-//if IE
-	script(type='text/javascript').
-		alert("Sitenin Görüntülenmesi için Güncel Bir Tarayıcı Kullanın");
-		window.location.href="http://www.google.com/intl/tr/chrome/";
+
+//- IE HACK
+<!--[if IE 8]>
+script(type='text/javascript').
+	alert("Sitenin Görüntülenmesi için Güncel Bir Tarayıcı Kullanın");
+	window.location.href = "http://www.google.com/intl/tr/chrome/";
+<![endif]-->
+
+//- HTML CODES
 html(lang="tr")
 	head
 		meta(charset="UTF-8")
@@ -17,7 +22,6 @@ html(lang="tr")
 		meta(name='msapplication-navbutton-color', content='#333333')
 		meta(name='apple-mobile-web-app-status-bar-style', content='#333333')
 		//CSS IMPORT
-		link(rel="stylesheet" type="text/css" href="css/font/flaticon.css")
 		link(rel="stylesheet" type="text/css" href="css/style.css")
 		//SEO META
 		meta(name="description" content="")
@@ -25,19 +29,18 @@ html(lang="tr")
 		meta(name="Author" content="")
 		meta(name="robots" content="index, follow")
 	body
-		.mask
-		//HEADER ALANI
+		//HEADER SCOPE
 		header#header
 			include header
-		//ICERIK ALANI
+		//CONTENT SCOPE
 		main#content
 			block body
-		//FOOTER
+		//FOOTER SCOPE
 		footer#footer
 			include footer
 		//JS IMPORT
 		script(src="js/jquery-1.11.3.min.js")
-		script(src="js/bootstrap.min.js")
-		script(src="js/scroll.min.js")
+		script(src="js/jquery-bootstrap.min.js")
+		script(src="js/smothScroll.min.js")
 		script(src="js/jq-front-end.min.js")
 		block script

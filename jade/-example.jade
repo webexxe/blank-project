@@ -1,10 +1,22 @@
-extends duzen/iskelet.jade
+extends layout/master
 
 block baslik
 	| Framework Example
 
 block body
 	.container
+		//- SAVE DATE
+		.row
+			.col-xs-12
+				-saveDate()
+		//- SCROLL GO TO
+		.row
+			.col-xs-12.mb-30.pt-30
+				h2 SCROLLGOTO FUNCTION EXAMPLE
+				p.mb-15
+					+lorem([18, 30])
+				button(onclick="$.scrollgoto('table.responsive', 100, 500)") TABLE RESPONSİVE
+				button(onclick="$.scrollgoto('table.responsive', 100, 5000, 1000)") TABLE RESPONSİVE SLOW
 		//- RADIO BUTTON AND CHECKBOX
 		.row
 			.col-xs-12.mb-30.pt-30

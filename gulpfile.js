@@ -39,23 +39,22 @@ gulp.task('jsMin', function () {
 			.pipe(gulp.dest('export/js'));
 });
 
-gulp.task('scripts',function(){
-	gulp.src(['export/js/*.js','!export/js/scripts.js'])
-			.pipe(uglify())
-			.pipe(concat('scripts.js'))
-			.pipe(gulp.dest('export/js'))
-});
+//gulp.task('scripts',function(){
+//	gulp.src(['export/js/*.js','!export/js/scripts.js'])
+//			.pipe(uglify())
+//			.pipe(concat('scripts.js'))
+//			.pipe(gulp.dest('export/js'))
+//});
 
 
 gulp.task('watch',function(){
 	gulp.watch('jade/**/*.jade',['jade']);
 	gulp.watch('sass/**/*.scss',['sass','cssprefix']);
 	gulp.watch(['js/**/*.js','!js/**/_*.js'],['jsMin']);
-	gulp.watch(['export/js/*.js','!export/js/scripts.js'],['scripts']);
-
+	//gulp.watch(['export/js/*.js','!export/js/scripts.js'],['scripts']);
 });
 
-gulp.task('default', ['jade','sass','cssprefix','jsMin','scripts','watch']);
+gulp.task('default', ['jade','sass','cssprefix','jsMin', /*'scripts',*/ 'watch']);
 
 //INSTALL
 //npm install --save-dev gulp
