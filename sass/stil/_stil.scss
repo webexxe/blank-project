@@ -1,23 +1,25 @@
 /** STIL CSS - stil/_stil.scss **/
 
 body {
-	min-width: 320px;
-	font-family: 'Roboto', sans-serif;
-	font-size: 14px;
-	color: $text;
+  min-width: 320px;
+  @if $s_font-roboto == true {
+    font-family: 'Roboto', sans-serif;
+  }
+  @if $s_font-open-sans == true {
+    font-family: 'Open Sans', sans-serif;
+  }
+  font-size: 14px;
+  color: $text;
 }
 
-body.desktop::-webkit-scrollbar-track
-{
-	background-color: rgba(0, 0, 0, 0.2);
+body.desktop::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
-body.desktop::-webkit-scrollbar
-{
-	width: 10px;
+body.desktop::-webkit-scrollbar {
+  width: 10px;
 }
 
-body.desktop::-webkit-scrollbar-thumb
-{
-	background-color:  rgba(0, 0, 0, 0.5);
+body.desktop::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5);
 }
