@@ -1,13 +1,13 @@
-/** STIL FRAMEWORK - stil.scss **/
-@import "stil/_framework/_framework-color";
-@import "stil/_framework/_framework-mixin";
-@import "stil/_framework/_framework-class";
-@import "stil/_framework/_framework";
+/** STIL FRAMEWORK - style.scss **/
+@import "project-style/_framework/_framework-color";
+@import "project-style/_framework/_framework-mixin";
+@import "project-style/_framework/_framework-class";
+@import "project-style/_framework/_framework";
 
-/** STIL CSS - stil.scss **/
-@import "stil/_header";
-@import "stil/_footer";
-@import "stil/_stil";
-@import "stil/_media-devices";
+/** STIL CSS - style.scss **/
+@import "project-style/_header";
+@import "project-style/_footer";
+@import "project-style/_project-style";
+@import "project-style/_media-devices";
 
-/** STIL MODULLER - stil.scss **/
+/** STIL MODULLER - style.scss **/

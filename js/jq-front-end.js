@@ -18,8 +18,14 @@ $(function () {
     }
 
     //--------------------------------------------------------------------------------------------------------------------------------------//
+    //TOOLTIP BOOTSTRAP.JS
+
+    $('[data-toggle="tooltip"]').tooltip();
+
+    //--------------------------------------------------------------------------------------------------------------------------------------//
     //SCROLL GO TO
 
+    // DIV BUTTON
     $.scrollgoto = function (target, top, speed, delay) {
         top = top == undefined ? 0 : top;
         speed = speed == undefined ? 300 : speed;
@@ -31,10 +37,26 @@ $(function () {
         }, delay);
     };
 
-    //--------------------------------------------------------------------------------------------------------------------------------------//
-    //TOOLTIP BOOTSTRAP
+    // A HREF
+    $('a[href*="#"]:not([href="#"])').click(function () {
+        var target = $(this.hash),
+            top = $(this).attr("data-top"),
+            speed = $(this).attr("data-speed"),
+            delay = $(this).attr("data-delay");
+        top = top == undefined ? 0 : top;
+        speed = speed == undefined ? 300 : speed;
+        delay = delay == undefined ? 0 : delay;
+        speed = parseInt(speed);
 
-    $('[data-toggle="tooltip"]').tooltip();
+        if (target.length) {
+            setTimeout(function () {
+                $('html, body').animate({
+                    scrollTop: $(target).offset().top - top
+                }, speed);
+            }, delay);
+            return false;
+        }
+    });
 
     //--------------------------------------------------------------------------------------------------------------------------------------//
     //POPUPA OLAYLARI
@@ -42,14 +64,14 @@ $(function () {
     //READY ACILAN
     if ($(".popupA[data-ready]").length) {
         //POZISYON HESAPLAMA
-        var hedef = $(".popupA[data-ready]").attr("data-hedef");
-        var yuksek = $(".popupA[data-hedef=" + hedef + "]").outerHeight() / 2;
-        $(".popupA[data-hedef=" + hedef + "]").css("margin-top", "-" + yuksek + "px")
+        var target = $(".popupA[data-ready]").attr("data-target");
+        var yuksek = $(".popupA[data-target=" + target + "]").outerHeight() / 2;
+        $(".popupA[data-target=" + target + "]").css("margin-top", "-" + yuksek + "px")
         // POPUP ISLEMI
-        $(".popupA[data-hedef=" + hedef + "]").fadeToggle(200);
-        $(".popupA[data-hedef=" + hedef + "]").find(".kapat").attr("data-hedef", hedef);
+        $(".popupA[data-target=" + target + "]").fadeToggle(200);
+        $(".popupA[data-target=" + target + "]").find(".kapat").attr("data-target", target);
         $(".maske").fadeToggle(200);
-        $(".maske").attr("data-hedef", hedef);
+        $(".maske").attr("data-target", target);
     }
 
     //ALERT STILI ACILAN
@@ -58,35 +80,35 @@ $(function () {
         var alertMessage = typeof alertMessage === 'undefined' ? "Bir hata oluştu!" : alertMessage;
         var title = typeof title === 'undefined' ? null : title;
         var maske = typeof maske === 'undefined' ? true : typeof maske !== 'boolean' ? true : maske; // ture - false
-        var hedef = "alert";
+        var target = "alert";
         //TEKRAR
-        if ($(".popupA[data-hedef='" + hedef + "']").length) $(".popupA[data-hedef='" + hedef + "']").find(".kapat").click();
+        if ($(".popupA[data-target='" + target + "']").length) $(".popupA[data-target='" + target + "']").find(".kapat").click();
 
-        $("body").prepend("<div class='popupA " + alertClass + "' data-hedef='" + hedef + "'><div class='kapat flaticon-close47'></div><div class='icerik'>" + alertMessage + "</div></div>")
-        if (title) $(".popupA[data-hedef=" + hedef + "]").prepend("<div class='baslik'>" + title + "</div>")
+        $("body").prepend("<div class='popupA " + alertClass + "' data-target='" + target + "'><div class='kapat flaticon-close47'></div><div class='icerik'>" + alertMessage + "</div></div>")
+        if (title) $(".popupA[data-target=" + target + "]").prepend("<div class='baslik'>" + title + "</div>")
 
-        $(".popupA[data-hedef=" + hedef + "]").fadeIn(200);
+        $(".popupA[data-target=" + target + "]").fadeIn(200);
         if (maske == true) {
             $(".maske").fadeIn(200);
-            $(".maske").attr("data-hedef", hedef);
+            $(".maske").attr("data-target", target);
         }
     };
 
     //TETIKLEYEREK ACILAN
-    $.popupA = function (hedef) {
-        $(".popupA[data-hedef=" + hedef + "]").fadeToggle(200);
+    $.popupA = function (target) {
+        $(".popupA[data-target=" + target + "]").fadeToggle(200);
         $(".maske").fadeToggle(200);
-        $(".maske").attr("data-hedef", hedef);
+        $(".maske").attr("data-target", target);
     };
-    $.popupAin = function (hedef) {
-        $(".popupA[data-hedef=" + hedef + "]").fadeIn(200);
+    $.popupAin = function (target) {
+        $(".popupA[data-target=" + target + "]").fadeIn(200);
         $(".maske").fadeIn(200);
-        $(".maske").attr("data-hedef", hedef);
+        $(".maske").attr("data-target", target);
     };
-    $.popupAout = function (hedef) {
-        $(".popupA[data-hedef=" + hedef + "]").fadeOut(200);
+    $.popupAout = function (target) {
+        $(".popupA[data-target=" + target + "]").fadeOut(200);
         $(".maske").fadeOut(200);
-        $(".maske").removeAttr("data-hedef");
+        $(".maske").removeAttr("data-target");
     };
 
     //$.popup("hataAlert");
@@ -96,55 +118,55 @@ $(function () {
     //CLICK ACILAN
     $(document).delegate(".popupAbtn", "click", function () {
         //POZISYON HESAPLAMA
-        var hedef = $(this).attr("data-hedef");
-        var yuksek = $(".popupA[data-hedef=" + hedef + "]").outerHeight() / 2;
-        $(".popupA[data-hedef=" + hedef + "]").css("margin-top", "-" + yuksek + "px")
+        var target = $(this).attr("data-target");
+        var yuksek = $(".popupA[data-target=" + target + "]").outerHeight() / 2;
+        $(".popupA[data-target=" + target + "]").css("margin-top", "-" + yuksek + "px")
 
         // POPUP ISLEMI
-        $(".popupA[data-hedef=" + hedef + "]").fadeToggle(200);
-        $(".popupA[data-hedef=" + hedef + "]").find(".kapat").attr("data-hedef", hedef);
+        $(".popupA[data-target=" + target + "]").fadeToggle(200);
+        $(".popupA[data-target=" + target + "]").find(".kapat").attr("data-target", target);
         $(".maske").fadeToggle(200);
-        $(".maske").attr("data-hedef", hedef);
+        $(".maske").attr("data-target", target);
     });
 
     $(document).delegate(".popupA .kapat", "click", function () {
-        var hedef = $(this).parents(".popupA").attr("data-hedef");
-        $(".popupA[data-hedef=" + hedef + "]").fadeOut(200);
+        var target = $(this).parents(".popupA").attr("data-target");
+        $(".popupA[data-target=" + target + "]").fadeOut(200);
         $(".maske").fadeOut(200);
-        $(".maske").removeAttr("data-hedef");
+        $(".maske").removeAttr("data-target");
 
         // popupAlert ILE OLUSTURULAN ISKELETI SILER
-        if ($(".popupA[data-hedef='" + hedef + "']").hasClass(alertClass)) $(".popupA[data-hedef=" + hedef + "]").remove();
+        if ($(".popupA[data-target='" + target + "']").hasClass(alertClass)) $(".popupA[data-target=" + target + "]").remove();
 
     });
 
     $(document).delegate(".maske", "click", function () {
-        if ($(this).attr("data-hedef")) {
-            var hedef = $(this).attr("data-hedef");
-            $(".popupA[data-hedef=" + hedef + "]").fadeToggle(200);
+        if ($(this).attr("data-target")) {
+            var target = $(this).attr("data-target");
+            $(".popupA[data-target=" + target + "]").fadeToggle(200);
             $(".maske").fadeToggle(200);
-            $(".maske").removeAttr("data-hedef");
+            $(".maske").removeAttr("data-target");
 
             // popupAlert ILE OLUSTURULAN ISKELETI SILER
-            if ($(".popupA[data-hedef='" + hedef + "']").hasClass(alertClass)) $(".popupA[data-hedef=" + hedef + "]").remove();
+            if ($(".popupA[data-target='" + target + "']").hasClass(alertClass)) $(".popupA[data-target=" + target + "]").remove();
         }
     });
 
     //--------------------------------------------------------------------------------------------------------------------------------------//
     //TOOGLE BTN OLAYLARI
 
-    $(".toggleBtn").on("click", function (event) {
-        $(this).toggleClass("aktif");
-        var hedef = $(this).attr("data-hedef");
-        $("." + hedef).slideToggle(300);
+    $(".toggleBtn").on("click", function () {
+        $(this).toggleClass("active");
+        var target = $(this).attr("data-target");
+        $(target).slideToggle(300);
     });
 
     //--------------------------------------------------------------------------------------------------------------------------------------//
     //TOOGLE BTN CLASLI OLAYLAR
 
-    $(".toggleAktifBtn").on("click", function (event) {
-        var hedef = $(this).attr("data-hedef");
-        $("." + hedef).toggleClass("aktif");
+    $(".toggleActiveBtn").on("click", function () {
+        var target = $(this).attr("data-target");
+        $(target).toggleClass("active");
     });
 
     //--------------------------------------------------------------------------------------------------------------------------------------//
