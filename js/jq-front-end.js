@@ -59,6 +59,44 @@ $(function () {
     });
 
     //--------------------------------------------------------------------------------------------------------------------------------------//
+    //TOOGLE BTN OLAYLARI
+
+    $(".toggleBtn").on("click", function () {
+        $(this).toggleClass("active");
+        var target = $(this).attr("data-target");
+        $(target).slideToggle(300);
+    });
+
+    //--------------------------------------------------------------------------------------------------------------------------------------//
+    //TOOGLE BTN CLASLI OLAYLAR
+
+    $(".toggleActiveBtn").on("click", function () {
+        var target = $(this).attr("data-target");
+        $(target).toggleClass("active");
+    });
+
+    //--------------------------------------------------------------------------------------------------------------------------------------//
+    //TAB SYSTEM
+    $(".tab-menu .t-menu").on("click", function () {
+        var tabMenu = $(this).parents(".tab-menu");
+        var tabTarget = $(this).parents(".tab-menu").attr("data-tab-target");
+        var target = $(this).attr("data-target");
+        tabTarget = $(".tab-content#" + tabTarget);
+
+        //MENU ACTIVE SELECT
+        tabMenu.find(".t-menu").removeClass("active");
+        $(this).addClass("active");
+
+        //CONTENT ACTIVE SELECT
+        tabTarget.find(".t-content").removeClass("active");
+        tabTarget.find("#" + target + ".t-content").addClass("active");
+    });
+
+    // URL #name CONTENT ACTIVE SELECT
+    var tabName = window.location.href.slice(window.location.href.indexOf('#'));
+    $(".tab-menu .t-menu[href='" + tabName + "']").click();
+
+    //--------------------------------------------------------------------------------------------------------------------------------------//
     //POPUPA OLAYLARI
 
     //READY ACILAN
@@ -152,43 +190,6 @@ $(function () {
         }
     });
 
-    //--------------------------------------------------------------------------------------------------------------------------------------//
-    //TOOGLE BTN OLAYLARI
-
-    $(".toggleBtn").on("click", function () {
-        $(this).toggleClass("active");
-        var target = $(this).attr("data-target");
-        $(target).slideToggle(300);
-    });
-
-    //--------------------------------------------------------------------------------------------------------------------------------------//
-    //TOOGLE BTN CLASLI OLAYLAR
-
-    $(".toggleActiveBtn").on("click", function () {
-        var target = $(this).attr("data-target");
-        $(target).toggleClass("active");
-    });
-
-    //--------------------------------------------------------------------------------------------------------------------------------------//
-    //TAB SYSTEM
-    $(".tab-menu .t-menu").on("click", function () {
-        var tabMenu = $(this).parents(".tab-menu");
-        var tabTarget = $(this).parents(".tab-menu").attr("data-tab-target");
-        var target = $(this).attr("data-target");
-        tabTarget = $(".tab-content#" + tabTarget);
-
-        //MENU ACTIVE SELECT
-        tabMenu.find(".t-menu").removeClass("active");
-        $(this).addClass("active");
-
-        //CONTENT ACTIVE SELECT
-        tabTarget.find(".t-content").removeClass("active");
-        tabTarget.find("#" + target + ".t-content").addClass("active");
-    });
-
-    // URL #name CONTENT ACTIVE SELECT
-    var tabName = window.location.href.slice(window.location.href.indexOf('#'));
-    $(".tab-menu .t-menu[href='" + tabName + "']").click();
 
     //--------------------------------------------------------------------------------------------------------------------------------------//
     //GENISLIK YUKSEKLIK DEGISTIGINDE

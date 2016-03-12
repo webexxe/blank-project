@@ -17,6 +17,22 @@ block body
 					+lorem([18, 30])
 				button(onclick="$.scrollgoto('table.responsive', 100, 500)") TABLE RESPONSİVE
 				button(onclick="$.scrollgoto('table.responsive', 100, 5000, 1000)") TABLE RESPONSİVE SLOW
+				a(href="#scrollgoto" data-top="30") SCROLL GOTO EXAMPLE
+				a(href="#scrollgoto" data-top="30" data-speed="2000") SCROLL GOTO EXAMPLE SPEED
+		//- TOGGLE BTN
+		.row
+			.col-xs-12.mb-30.pt-30
+				h2 TOGGLE BTN EXAMPLE
+				p.mb-15
+					+lorem([18, 30])
+				.toggleBtn(data-target="#toggleExample1") Toggle Example 1
+				.toggleBtn(data-target=".toggleExample2, .toggleExample3") Toggle Example 2, 3
+				.toggleActiveBtn(data-target=".toggleExample2, .toggleExample3") Toggle Active Class Example 2, 3
+				br
+				.row
+					.col-xs-12#toggleExample1 Toggle Example 1 Content .slideToggle(300);
+					.col-xs-12.toggleExample2 Toggle Example 2 Content .slideToggle(300);
+					.col-xs-12.toggleExample3 Toggle Example 3 Content .slideToggle(300);
 		//- RADIO BUTTON AND CHECKBOX
 		.row
 			.col-xs-12.mb-30.pt-30
@@ -154,3 +170,7 @@ block body
 				.tab-content(id="main-tab-2")
 					.t-content(id="a-tab1").active Tab İçerik 1
 					.t-content(id="a-tab2") Tab İçerik 2
+		//- SCROLlGOTO
+		#scrollgoto.row
+			.col-xs-12
+				p scrollgoto Example
