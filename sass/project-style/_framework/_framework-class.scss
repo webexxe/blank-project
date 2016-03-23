@@ -29,13 +29,6 @@ ol:after {
   text-overflow: ellipsis;
 }
 
-.rs-item {
-  & > * {
-    display: table-cell;
-    width: 1%;
-  }
-}
-
 .no-scroll {
   height: 100vh;
   overflow: hidden;
@@ -44,6 +37,43 @@ ol:after {
 .img-responsiveX {
   max-width: inherit;
   width: 100%;
+}
+
+//BOX WIDTH FULL EQUALIZE
+.wf-equalize {
+  & > * {
+    display: table-cell;
+    width: 1%;
+  }
+}
+
+//BOX HEIGHT EQUALIZE
+.h-equalize {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+//BOX VERTICAL STATUS
+.v-middle, .v-top, .v-bottom {
+  font-size: 0;
+
+  & > * {
+    display: inline-block;
+    float: none;
+  }
+}
+
+.v-middle > * {
+  vertical-align: middle;
+}
+
+.v-top > * {
+  vertical-align: top;
+}
+
+.v-bottom > * {
+  vertical-align: bottom;
 }
 
 //POSITION STATUS
