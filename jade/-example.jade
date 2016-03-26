@@ -17,8 +17,21 @@ block body
 					+lorem([18, 30])
 				button(onclick="$.scrollgoto('table.responsive', 100, 500)") TABLE RESPONSİVE
 				button(onclick="$.scrollgoto('table.responsive', 100, 5000, 1000)") TABLE RESPONSİVE SLOW
-				a(href="#scrollgoto" data-top="30") SCROLL GOTO EXAMPLE
-				a(href="#scrollgoto" data-top="30" data-speed="2000") SCROLL GOTO EXAMPLE SPEED
+				a(href="#scrollgoto" data-top="30")  SCROLL GOTO EXAMPLE
+				a(href="#scrollgoto" data-top="30" data-speed="2000")  SCROLL GOTO EXAMPLE SPEED
+		//- TOOLTIP.CSS
+		.row
+			.col-xs-12
+				h2 TOOLTIP.CSS EXAMPLE
+				p Lorem ipsum dolor consectetur elit. Corporis
+					b(data-tooltip='Standart kullanım için attirbut içerisine içeriği yazın')  data-tooltip
+					|  tempora. Aliquid assumenda, consequatur dolores, ducimus
+					b(data-tooltip="Tooltip i istediğiniz yönde açabilmek için kestra 'data-tooltip-top gibi attirbut kullanın'", data-tooltip-top='', data-tooltip-mask='')  data-tooltip-top
+					|  libero officia ratione suscipit veniam.
+					br
+					b(data-tooltip="Tooltip i istediğiniz yönde açabilmek için kestra 'data-tooltip-top gibi attirbut kullanın'", data-tooltip-right='')  data-tooltip-right
+					|  quaerat?
+					a(href="http://emretekin.com.tr/tooltip.css/" target="_blank")  gitHub Example
 		//- TOGGLE BTN
 		.row
 			.col-xs-12.mb-30.pt-30
@@ -189,7 +202,7 @@ block body
 				.tab-content(id="main-tab-2")
 					.t-content(id="a-tab1").active Tab İçerik 1
 					.t-content(id="a-tab2") Tab İçerik 2
-		//- SCROLlGOTO
+		//- SCROLLGOTO
 		#scrollgoto.row
 			.col-xs-12
 				p scrollgoto Example

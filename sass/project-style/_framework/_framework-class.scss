@@ -1,6 +1,7 @@
 /** FRAMEWORK CLASS _framework-class.scss **/
 
-//CLASS
+// CLASS
+// ---------------------------------------------------------------------------------------------------------------------
 .clear:after,
 ul:after,
 li:after,
@@ -39,7 +40,8 @@ ol:after {
   width: 100%;
 }
 
-//BOX WIDTH FULL EQUALIZE
+// BOX WIDTH FULL EQUALIZE
+// ---------------------------------------------------------------------------------------------------------------------
 .wf-equalize {
   & > * {
     display: table-cell;
@@ -47,14 +49,16 @@ ol:after {
   }
 }
 
-//BOX HEIGHT EQUALIZE
+// BOX HEIGHT EQUALIZE
+// ---------------------------------------------------------------------------------------------------------------------
 .h-equalize {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
 
-//BOX VERTICAL STATUS
+// BOX VERTICAL STATUS
+// ---------------------------------------------------------------------------------------------------------------------
 .v-middle, .v-top, .v-bottom {
   font-size: 0;
 
@@ -76,7 +80,8 @@ ol:after {
   vertical-align: bottom;
 }
 
-//POSITION STATUS
+// POSITION STATUS
+// ---------------------------------------------------------------------------------------------------------------------
 .position-fixed {
   position: fixed !important;
 }
@@ -93,7 +98,8 @@ ol:after {
   position: static !important;
 }
 
-//HOVER STATUS
+// HOVER STATUS
+// ---------------------------------------------------------------------------------------------------------------------
 .hvrL {
   @include anims(200ms);
   box-shadow: inset 0 0 0 500px rgba(255, 255, 255, 0);
@@ -120,7 +126,8 @@ ol:after {
   }
 }
 
-//DATA BEFORE - AFTER
+// DATA BEFORE - AFTER
+// ---------------------------------------------------------------------------------------------------------------------
 *[data-before] {
   &:before {
     content: attr(data-before);
@@ -133,7 +140,8 @@ ol:after {
   }
 }
 
-//TAB SYSTEM
+// TAB SYSTEM
+// ---------------------------------------------------------------------------------------------------------------------
 .tab-menu {
   .t-menu {
   }
@@ -149,7 +157,8 @@ ol:after {
   }
 }
 
-//MARGIN STATUS
+// MARGIN STATUS
+// ---------------------------------------------------------------------------------------------------------------------
 .mb-5 {
   margin-bottom: 5px;
 }
@@ -310,7 +319,8 @@ ol:after {
   margin-left: 50px;
 }
 
-//PADDING STATUS
+// PADDING STATUS
+// ---------------------------------------------------------------------------------------------------------------------
 .pb-5 {
   padding-bottom: 5px;
 }
@@ -471,7 +481,8 @@ ol:after {
   padding-left: 50px;
 }
 
-//FORM ELEMENTS
+// FORM ELEMENTS
+// ---------------------------------------------------------------------------------------------------------------------
 input:not([type="checkbox"]):not([type="radio"]),
 select,
 textarea,
@@ -605,6 +616,7 @@ input.check {
 }
 
 // TABLET 2 DEVICES
+// ---------------------------------------------------------------------------------------------------------------------
 @media (max-width: $devices-sm) {
   table.responsive {
     width: 100%;
@@ -684,4 +696,189 @@ input.check {
     }
   }
 
+}
+
+// TOOLTIP.CSS
+// ---------------------------------------------------------------------------------------------------------------------
+*[data-tooltip] {
+  position: relative;
+
+  &:hover {
+    &:before, &:after {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &:before {
+      transition: all 300ms 200ms cubic-bezier(0.25, 0, 0.15, 1.50);
+    }
+  }
+
+  &:before {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 300ms 000ms cubic-bezier(0.25, 0, 0.15, 1.50);
+  }
+
+  &:after {
+    visibility: hidden;
+    opacity: 0;
+    content: attr(data-tooltip);
+    line-height: inherit;
+    position: absolute;
+    z-index: 99;
+    padding: 5px 10px;
+    background: #333;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 3px;
+    width: 250%;
+    max-width: 200px;
+    transition: all 300ms 100ms cubic-bezier(0.25, 0, 0.15, 1.50);
+  }
+
+}
+
+*[data-tooltip-mask] {
+  z-index: 999;
+  box-shadow: inset 0 0 0 500px rgba($text, 0), 0 0 0 5000px rgba($text, 0);
+  transition: all 500ms 100ms;
+
+  &:hover {
+    box-shadow: inset 0 0 0 500px rgba($colorB, 0.70), 0 0 0 5000px rgba($colorB, 0.70);
+
+  }
+}
+
+*[data-tooltip]:before,
+*[data-tooltip-bottom]:before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 12.5px 15px 12.5px;
+  border-color: transparent transparent $text transparent;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: -25px;
+}
+
+*[data-tooltip]:hover:before,
+*[data-tooltip-bottom]:hover:before {
+  bottom: -15px;
+}
+
+*[data-tooltip]:after,
+*[data-tooltip-bottom]:after {
+  transform: translate(-50%, 100%) scale(.8);
+  left: 50%;
+  bottom: -10px;
+}
+
+*[data-tooltip]:hover:after,
+*[data-tooltip-bottom]:hover:after {
+  transform: translate(-50%, 100%) scale(1);
+}
+
+*[data-tooltip-top]:before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 15px 12.5px 0 12.5px;
+  border-color: $text transparent transparent transparent;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: inherit;
+  top: -25px;
+}
+
+*[data-tooltip-top]:hover {
+  &:before {
+    bottom: inherit;
+    top: -15px;
+  }
+  &:after {
+    transform: translate(-50%, -100%) scale(1);
+  }
+}
+
+*[data-tooltip-top]:after {
+  transform: translate(-50%, -100%) scale(.8);
+  left: 50%;
+  top: -10px;
+  bottom: inherit;
+}
+
+*[data-tooltip-left]:before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 12.5px 0 12.5px 15px;
+  border-color: transparent transparent transparent $text;
+  position: absolute;
+  margin: auto;
+  bottom: 0;
+  top: 0;
+  right: inherit;
+  left: -25px;
+}
+
+*[data-tooltip-left]:hover {
+  &:before {
+    bottom: 0;
+    top: 0;
+    right: inherit;
+    left: -15px;
+  }
+  &:after {
+    transform: translate(-100%, -50%) scale(1);
+  }
+}
+
+*[data-tooltip-left]:after {
+  transform: translate(-100%, -50%) scale(.8);
+  left: -10px;
+  top: 50%;
+  bottom: inherit;
+}
+
+*[data-tooltip-right]:before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 12.5px 15px 12.5px 0;
+  border-color: transparent $text transparent transparent;
+  position: absolute;
+  margin: auto;
+  bottom: 0;
+  top: 0;
+  left: inherit;
+  right: -25px;
+}
+
+*[data-tooltip-right]:hover {
+  &:before {
+    bottom: 0;
+    top: 0;
+    left: inherit;
+    right: -15px;
+  }
+  &:after {
+    transform: translate(100%, -50%) scale(1);
+  }
+}
+
+*[data-tooltip-right]:after {
+  transform: translate(100%, -50%) scale(.8);
+  right: -10px;
+  top: 50%;
+  left: inherit;
+  bottom: inherit;
 }

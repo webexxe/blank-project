@@ -1,6 +1,7 @@
 /** FRAMEWORK COLOR _framework-color.scss **/
 
-//MAIN COLORS
+// MAIN COLORS
+// ---------------------------------------------------------------------------------------------------------------------
 $colorA: #7B1FA2;
 $colorALL: lighten($colorA,10%);
 $colorAL: lighten($colorA,5%);
@@ -19,7 +20,8 @@ $colorCL: lighten($colorC,5%);
 $colorCD: darken($colorC,5%);
 $colorCDD: darken($colorC,10%);
 
-//OTHER-COLORS
+// OTHER-COLORS
+// ---------------------------------------------------------------------------------------------------------------------
 $blue: #006edd;
 $blueLL: lighten($blue,10%);
 $blueL: lighten($blue,5%);
@@ -50,14 +52,16 @@ $greenL: lighten($green,5%);
 $greenD: darken($green,5%);
 $greenDD: darken($green,10%);
 
-//TEXT-COLORS
+// TEXT-COLORS
+// ---------------------------------------------------------------------------------------------------------------------
 $textDD: #101010;
 $textD: #252525;
 $text: #303030;
 $textL: #606060;
 $textLL: #959595;
 
-//SOCIAL-COLORS
+// SOCIAL-COLORS
+// ---------------------------------------------------------------------------------------------------------------------
 $fb: #3b5998;
 $tw: #00aced;
 $gp: #dd4b39;
