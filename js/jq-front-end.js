@@ -1,7 +1,7 @@
 $(function () {
 
     //----------------------------------------------------------------------------------------------------------------//
-    // MOBILE - DESKTOP
+    // MOBIL - DESKTOP
 
     var mobile = (/iphone|ipod|ipad|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));
     if (mobile) {
