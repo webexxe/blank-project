@@ -22,11 +22,11 @@ $(function () {
     var touchScope = $("body.mobil");
 
     touchScope.on("swipeLeft", function () {
-        console.log("swipeLeft")
+        console.log("swipe Left");
     });
 
     touchScope.on("swipeRight", function () {
-        console.log("swipeRight")
+        console.log("swipe Right");
     });
 
     //----------------------------------------------------------------------------------------------------------------//
