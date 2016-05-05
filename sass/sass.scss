@@ -3,8 +3,8 @@
     Style   - Responsive Layout
     Author  - Emre Tekin
     Url     - github.com/webexxe/blank-project
-    Update  - 26-03-2016
-    Ver     - 0.1.6
+    Update  - 05-05-2016
+    Ver     - 0.1.7
 
 */
 
@@ -12,7 +12,6 @@
 $s_font-roboto: true;
 $s_font-open-sans: false;
 $s_font-awesome: true;
-$s_css-animate: false;
 
 /*!
 
@@ -32,14 +31,12 @@ $s_css-animate: false;
   @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
 }
 
-@if $s_css-animate == true {
-  /*!
+/*!
 
-      CSS ANIMATE
+	CSS ANIMATE
 
-  */
-  @import "_animate";
-}
+*/
+@import "_animate";
 
 /*!
 

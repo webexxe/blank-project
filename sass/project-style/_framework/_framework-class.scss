@@ -44,8 +44,8 @@ ol:after {
 // ---------------------------------------------------------------------------------------------------------------------
 .wf-equalize {
   & > * {
-    display: table-cell;
-    width: 1%;
+	display: table-cell;
+	width: 1%;
   }
 }
 
@@ -63,8 +63,8 @@ ol:after {
   font-size: 0;
 
   & > * {
-    display: inline-block;
-    float: none;
+	display: inline-block;
+	float: none;
   }
 }
 
@@ -105,7 +105,7 @@ ol:after {
   box-shadow: inset 0 0 0 500px rgba(255, 255, 255, 0);
 
   &:hover {
-    box-shadow: inset 0 0 0 500px rgba(255, 255, 255, 0.15);
+	box-shadow: inset 0 0 0 500px rgba(255, 255, 255, 0.15);
   }
 }
 
@@ -114,7 +114,7 @@ ol:after {
   box-shadow: inset 0 0 0 500px rgba(0, 0, 0, 0);
 
   &:hover {
-    box-shadow: inset 0 0 0 500px rgba(0, 0, 0, 0.15);
+	box-shadow: inset 0 0 0 500px rgba(0, 0, 0, 0.15);
   }
 }
 
@@ -122,7 +122,7 @@ ol:after {
   @include anims(200ms);
 
   &:hover {
-    opacity: 0.8;
+	opacity: 0.8;
   }
 }
 
@@ -130,13 +130,13 @@ ol:after {
 // ---------------------------------------------------------------------------------------------------------------------
 *[data-before] {
   &:before {
-    content: attr(data-before);
+	content: attr(data-before);
   }
 }
 
 *[data-after] {
   &:after {
-    content: attr(data-after);
+	content: attr(data-after);
   }
 }
 
@@ -149,11 +149,11 @@ ol:after {
 
 .tab-content {
   .t-content {
-    display: none;
+	display: none;
 
-    &.active {
-      display: block;
-    }
+	&.active {
+	  display: block;
+	}
   }
 }
 
@@ -498,7 +498,7 @@ textarea {
   height: 80px;
 
   &.no-size {
-    resize: none;
+	resize: none;
   }
 }
 
@@ -509,22 +509,22 @@ button {
 
 label.check-icon {
   input {
-    display: none;
+	display: none;
 
-    & ~ i {
-      color: $textLL;
-      font-size: 23px;
-      display: inline-block;
-      vertical-align: middle;
-      margin-right: 5px;
-    }
+	& ~ i {
+	  color: $textLL;
+	  font-size: 23px;
+	  display: inline-block;
+	  vertical-align: middle;
+	  margin-right: 5px;
+	}
 
-    &:checked {
-      & ~ i {
-        color: $colorB;
-      }
+	&:checked {
+	  & ~ i {
+		color: $colorB;
+	  }
 
-    }
+	}
   }
 }
 
@@ -533,85 +533,85 @@ input.check {
 
   &[type="checkbox"] {
 
-    & + label {
-      position: relative;
-      display: inline-block;
-      height: 20px;
-      padding-left: 25px;
+	& + label {
+	  position: relative;
+	  display: inline-block;
+	  height: 20px;
+	  padding-left: 25px;
 
-      &:before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 18px;
-        height: 18px;
-        background-color: #fff;
-        box-shadow: inset 0 0 0 1px $textLL;
-        border-radius: 2px;
-      }
-    }
+	  &:before {
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 18px;
+		height: 18px;
+		background-color: #fff;
+		box-shadow: inset 0 0 0 1px $textLL;
+		border-radius: 2px;
+	  }
+	}
 
-    &:checked + label {
-      &:before {
-        box-shadow: inset 0 0 0 1px $colorB;
-        background-color: $colorB;
-      }
+	&:checked + label {
+	  &:before {
+		box-shadow: inset 0 0 0 1px $colorB;
+		background-color: $colorB;
+	  }
 
-      &:after {
-        content: "";
-        width: 11px;
-        height: 6px;
-        display: block;
-        position: absolute;
-        border-bottom: solid 1px #fff;
-        border-left: solid 1px #fff;
-        left: 4px;
-        top: 4px;
-        transform: rotate(-45deg);
-      }
-    }
+	  &:after {
+		content: "";
+		width: 11px;
+		height: 6px;
+		display: block;
+		position: absolute;
+		border-bottom: solid 1px #fff;
+		border-left: solid 1px #fff;
+		left: 4px;
+		top: 4px;
+		transform: rotate(-45deg);
+	  }
+	}
   }
 
   &[type="radio"] {
 
-    & + label {
-      position: relative;
-      display: inline-block;
-      height: 20px;
-      padding-left: 25px;
+	& + label {
+	  position: relative;
+	  display: inline-block;
+	  height: 20px;
+	  padding-left: 25px;
 
-      &:before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 18px;
-        height: 18px;
-        background-color: #fff;
-        box-shadow: inset 0 0 0 1px $textLL;
-        border-radius: 50%;
-      }
-    }
+	  &:before {
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 18px;
+		height: 18px;
+		background-color: #fff;
+		box-shadow: inset 0 0 0 1px $textLL;
+		border-radius: 50%;
+	  }
+	}
 
-    &:checked + label {
+	&:checked + label {
 
-      &:before {
-        box-shadow: inset 0 0 0 1px $colorB;
-        background-color: $colorB;
-      }
+	  &:before {
+		box-shadow: inset 0 0 0 1px $colorB;
+		background-color: $colorB;
+	  }
 
-      &:after {
-        content: "";
-        position: absolute;
-        top: 3px;
-        left: 3px;
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        box-shadow: inset 0 0 0 2px #fff;
-      }
-    }
+	  &:after {
+		content: "";
+		position: absolute;
+		top: 3px;
+		left: 3px;
+		width: 12px;
+		height: 12px;
+		border-radius: 50%;
+		box-shadow: inset 0 0 0 2px #fff;
+	  }
+	}
   }
 }
 
@@ -619,81 +619,81 @@ input.check {
 // ---------------------------------------------------------------------------------------------------------------------
 @media (max-width: $devices-sm) {
   table.responsive {
-    width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0;
-    display: block;
-    position: relative;
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+	display: block;
+	position: relative;
 
-    thead {
-      border: 0;
-      float: left;
-      border-right: 1px solid #d0d0d0;
+	thead {
+	  border: 0;
+	  float: left;
+	  border-right: 1px solid #d0d0d0;
 
-      tr {
-        display: block;
-        padding: 0 10px 0 0;
+	  tr {
+		display: block;
+		padding: 0 10px 0 0;
 
-        th {
-          display: block;
-          text-align: right;
-        }
-      }
-    }
+		th {
+		  display: block;
+		  text-align: right;
+		}
+	  }
+	}
 
-    tbody {
-      display: block;
-      width: auto;
-      position: relative;
-      overflow-x: auto;
-      white-space: nowrap;
+	tbody {
+	  display: block;
+	  width: auto;
+	  position: relative;
+	  overflow-x: auto;
+	  white-space: nowrap;
 
-      tr {
-        display: inline-block;
-        vertical-align: top;
+	  tr {
+		display: inline-block;
+		vertical-align: top;
 
-        td {
-          display: block;
-          min-height: 1.25em;
-          text-align: left;
-        }
-      }
-    }
+		td {
+		  display: block;
+		  min-height: 1.25em;
+		  text-align: left;
+		}
+	  }
+	}
   }
 
   table.blocked-responsive {
-    thead {
-      display: none;
-    }
+	thead {
+	  display: none;
+	}
 
-    tbody {
-      font-size: 0;
-      text-align: center;
+	tbody {
+	  font-size: 0;
+	  text-align: center;
 
-      tr {
-        font-size: 16px;
-        display: inline-block;
-        border: solid 1px #e0e0e0;
-        margin: 15px;
-        min-width: 250px;
+	  tr {
+		font-size: 16px;
+		display: inline-block;
+		border: solid 1px #e0e0e0;
+		margin: 15px;
+		min-width: 250px;
 
-        td {
-          display: block;
-          text-align: center;
-          border-bottom: solid 1px #eee;
+		td {
+		  display: block;
+		  text-align: center;
+		  border-bottom: solid 1px #eee;
 
-          &:last-child {
-            border: none;
-          }
+		  &:last-child {
+			border: none;
+		  }
 
-          &:before {
-            content: attr(data-th);
-            display: block;
-            font-weight: bold;
-          }
-        }
-      }
-    }
+		  &:before {
+			content: attr(data-th);
+			display: block;
+			font-weight: bold;
+		  }
+		}
+	  }
+	}
   }
 
 }
@@ -704,37 +704,38 @@ input.check {
   position: relative;
 
   &:hover {
-    &:before, &:after {
-      visibility: visible;
-      opacity: 1;
-    }
+	&:before, &:after {
+	  visibility: visible;
+	  opacity: 1;
+	}
 
-    &:before {
-      transition: all 300ms 200ms cubic-bezier(0.25, 0, 0.15, 1.50);
-    }
+	&:before {
+	  transition: all 300ms 200ms cubic-bezier(0.25, 0, 0.15, 1.50);
+	}
   }
 
   &:before {
-    visibility: hidden;
-    opacity: 0;
-    transition: all 300ms 000ms cubic-bezier(0.25, 0, 0.15, 1.50);
+	visibility: hidden;
+	opacity: 0;
+	transition: all 300ms 000ms cubic-bezier(0.25, 0, 0.15, 1.50);
   }
 
   &:after {
-    visibility: hidden;
-    opacity: 0;
-    content: attr(data-tooltip);
-    line-height: inherit;
-    position: absolute;
-    z-index: 99;
-    padding: 5px 10px;
-    background: #333;
-    color: #fff;
-    font-size: 12px;
-    border-radius: 3px;
-    width: 250%;
-    max-width: 200px;
-    transition: all 300ms 100ms cubic-bezier(0.25, 0, 0.15, 1.50);
+	visibility: hidden;
+	opacity: 0;
+	content: attr(data-tooltip);
+	line-height: inherit;
+	position: absolute;
+	z-index: 99;
+	padding: 5px 10px;
+	background: #333;
+	color: #fff;
+	font-weight: normal;
+	font-size: 12px;
+	border-radius: 3px;
+	width: 250%;
+	max-width: 200px;
+	transition: all 300ms 100ms cubic-bezier(0.25, 0, 0.15, 1.50);
   }
 
 }
@@ -745,7 +746,7 @@ input.check {
   transition: all 500ms 100ms;
 
   &:hover {
-    box-shadow: inset 0 0 0 500px rgba($colorB, 0.70), 0 0 0 5000px rgba($colorB, 0.70);
+	box-shadow: inset 0 0 0 500px rgba($colorB, 0.70), 0 0 0 5000px rgba($colorB, 0.70);
 
   }
 }
@@ -799,11 +800,11 @@ input.check {
 
 *[data-tooltip-top]:hover {
   &:before {
-    bottom: inherit;
-    top: -15px;
+	bottom: inherit;
+	top: -15px;
   }
   &:after {
-    transform: translate(-50%, -100%) scale(1);
+	transform: translate(-50%, -100%) scale(1);
   }
 }
 
@@ -831,13 +832,13 @@ input.check {
 
 *[data-tooltip-left]:hover {
   &:before {
-    bottom: 0;
-    top: 0;
-    right: inherit;
-    left: -15px;
+	bottom: 0;
+	top: 0;
+	right: inherit;
+	left: -15px;
   }
   &:after {
-    transform: translate(-100%, -50%) scale(1);
+	transform: translate(-100%, -50%) scale(1);
   }
 }
 
@@ -865,13 +866,13 @@ input.check {
 
 *[data-tooltip-right]:hover {
   &:before {
-    bottom: 0;
-    top: 0;
-    left: inherit;
-    right: -15px;
+	bottom: 0;
+	top: 0;
+	left: inherit;
+	right: -15px;
   }
   &:after {
-    transform: translate(100%, -50%) scale(1);
+	transform: translate(100%, -50%) scale(1);
   }
 }
 
