@@ -1,0 +1,15 @@
+{
+  "name": "responsive-layout",
+  "version": "0.1.8",
+  "dependencies": {
+    "gulp":"latest",
+    "gulp-sass":"latest",
+    "gulp-autoprefixer":"latest",
+    "gulp-jsmin":"latest",
+    "gulp-jade":"latest",
+    "gulp-uglify":"latest",
+    "gulp-concat":"latest",
+    "gulp-rename":"latest",
+    "browser-sync":"latest"
+  }
+}
