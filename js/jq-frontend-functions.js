@@ -48,25 +48,30 @@ $(function () {
     });
 
     //----------------------------------------------------------------------------------------------------------------//
-    //TOOGLE BTN OLAYLARI
+    //TOOGLE BTN ACTION
 
-    $(".toggleBtn").on("click", function () {
+    var toggle_btn = $(".toggleBtn");
+
+    toggle_btn.on("click", function () {
         $(this).toggleClass("active");
         var target = $(this).attr("data-target");
         $(target).slideToggle(300);
     });
 
     //----------------------------------------------------------------------------------------------------------------//
-    //TOOGLE BTN CLASLI OLAYLAR
+    //TOOGLE BTN CLASLI ACTION
+    var toggle_active_btn = $(".toggleActiveBtn");
 
-    $(".toggleActiveBtn").on("click", function () {
+    toggle_active_btn.on("click", function () {
         var target = $(this).attr("data-target");
         $(target).toggleClass("active");
     });
 
     //----------------------------------------------------------------------------------------------------------------//
     //TAB SYSTEM
-    $(".tab-menu .t-menu").on("click", function () {
+    var tab_system = $(".tab-menu .t-menu");
+
+    tab_system.on("click", function () {
         var tabMenu = $(this).parents(".tab-menu");
         var tabTarget = $(this).parents(".tab-menu").attr("data-tab-target");
         var target = $(this).attr("data-target");
@@ -86,213 +91,16 @@ $(function () {
     $(".tab-menu .t-menu[href='" + tabName + "']").click();
 
     //----------------------------------------------------------------------------------------------------------------//
-    //POPUPA OLAYLARI
+    //JS INCLUDE FUNCTION
 
-    //READY ACILAN
-    if ($(".popupA[data-ready]").length) {
-        //POZISYON HESAPLAMA
-        var target = $(".popupA[data-ready]").attr("data-target");
-        var yuksek = $(".popupA[data-target=" + target + "]").outerHeight() / 2;
-        $(".popupA[data-target=" + target + "]").css("margin-top", "-" + yuksek + "px")
-        // POPUP ISLEMI
-        $(".popupA[data-target=" + target + "]").fadeToggle(200);
-        $(".popupA[data-target=" + target + "]").find(".kapat").attr("data-target", target);
-        $(".maske").fadeToggle(200);
-        $(".maske").attr("data-target", target);
-    }
-
-    //ALERT STILI ACILAN
-    var alertClass = "pAlert";
-    $.popupAlert = function (alertMessage, title, maske) {
-        var alertMessage = typeof alertMessage === 'undefined' ? "Bir hata oluştu!" : alertMessage;
-        var title = typeof title === 'undefined' ? null : title;
-        var maske = typeof maske === 'undefined' ? true : typeof maske !== 'boolean' ? true : maske; // ture - false
-        var target = "alert";
-        //TEKRAR
-        if ($(".popupA[data-target='" + target + "']").length) $(".popupA[data-target='" + target + "']").find(".kapat").click();
-
-        $("body").prepend("<div class='popupA " + alertClass + "' data-target='" + target + "'><div class='kapat flaticon-close47'></div><div class='icerik'>" + alertMessage + "</div></div>")
-        if (title) $(".popupA[data-target=" + target + "]").prepend("<div class='baslik'>" + title + "</div>")
-
-        $(".popupA[data-target=" + target + "]").fadeIn(200);
-        if (maske == true) {
-            $(".maske").fadeIn(200);
-            $(".maske").attr("data-target", target);
-        }
+    $.js_include = function (jsname) {
+        var head = $("head");
+        var script = "<script src='" + jsname + "'></script>";
+        head.append(script);
     };
-
-    //TETIKLEYEREK ACILAN
-    $.popupA = function (target) {
-        $(".popupA[data-target=" + target + "]").fadeToggle(200);
-        $(".maske").fadeToggle(200);
-        $(".maske").attr("data-target", target);
-    };
-    $.popupAin = function (target) {
-        $(".popupA[data-target=" + target + "]").fadeIn(200);
-        $(".maske").fadeIn(200);
-        $(".maske").attr("data-target", target);
-    };
-    $.popupAout = function (target) {
-        $(".popupA[data-target=" + target + "]").fadeOut(200);
-        $(".maske").fadeOut(200);
-        $(".maske").removeAttr("data-target");
-    };
-
-    //$.popup("hataAlert");
-    //$.popupAin("hataAlert");
-    //$.popupAout("hataAlert");
-
-    //CLICK ACILAN
-    $(document).delegate(".popupAbtn", "click", function () {
-        //POZISYON HESAPLAMA
-        var target = $(this).attr("data-target");
-        var yuksek = $(".popupA[data-target=" + target + "]").outerHeight() / 2;
-        $(".popupA[data-target=" + target + "]").css("margin-top", "-" + yuksek + "px")
-
-        // POPUP ISLEMI
-        $(".popupA[data-target=" + target + "]").fadeToggle(200);
-        $(".popupA[data-target=" + target + "]").find(".kapat").attr("data-target", target);
-        $(".maske").fadeToggle(200);
-        $(".maske").attr("data-target", target);
-    });
-
-    $(document).delegate(".popupA .kapat", "click", function () {
-        var target = $(this).parents(".popupA").attr("data-target");
-        $(".popupA[data-target=" + target + "]").fadeOut(200);
-        $(".maske").fadeOut(200);
-        $(".maske").removeAttr("data-target");
-
-        // popupAlert ILE OLUSTURULAN ISKELETI SILER
-        if ($(".popupA[data-target='" + target + "']").hasClass(alertClass)) $(".popupA[data-target=" + target + "]").remove();
-
-    });
-
-    $(document).delegate(".maske", "click", function () {
-        if ($(this).attr("data-target")) {
-            var target = $(this).attr("data-target");
-            $(".popupA[data-target=" + target + "]").fadeToggle(200);
-            $(".maske").fadeToggle(200);
-            $(".maske").removeAttr("data-target");
-
-            // popupAlert ILE OLUSTURULAN ISKELETI SILER
-            if ($(".popupA[data-target='" + target + "']").hasClass(alertClass)) $(".popupA[data-target=" + target + "]").remove();
-        }
-    });
-
 
     //----------------------------------------------------------------------------------------------------------------//
-    //GENISLIK YUKSEKLIK DEGISTIGINDE
-
-    (function ($) {
-        var a = {}, c = "doTimeout", d = Array.prototype.slice;
-        $[c] = function () {
-            return b.apply(window, [0].concat(d.call(arguments)))
-        };
-        $.fn[c] = function () {
-            var f = d.call(arguments), e = b.apply(this, [c + f[0]].concat(f));
-            return typeof f[0] === "number" || typeof f[1] === "number" ? this : e
-        };
-        function b(l) {
-            var m = this, h, k = {}, g = l ? $.fn : $, n = arguments, i = 4, f = n[1], j = n[2], p = n[3];
-            if (typeof f !== "string") {
-                i--;
-                f = l = 0;
-                j = n[1];
-                p = n[2]
-            }
-            if (l) {
-                h = m.eq(0);
-                h.data(l, k = h.data(l) || {})
-            } else {
-                if (f) {
-                    k = a[f] || (a[f] = {})
-                }
-            }
-            k.id && clearTimeout(k.id);
-            delete k.id;
-            function e() {
-                if (l) {
-                    h.removeData(l)
-                } else {
-                    if (f) {
-                        delete a[f]
-                    }
-                }
-            }
-
-            function o() {
-                k.id = setTimeout(function () {
-                    k.fn()
-                }, j)
-            }
-
-            if (p) {
-                k.fn = function (q) {
-                    if (typeof p === "string") {
-                        p = g[p]
-                    }
-                    p.apply(m, d.call(n, i)) === true && !q ? o() : e()
-                };
-                o()
-            } else {
-                if (k.fn) {
-                    j === undefined ? e() : k.fn(j === false);
-                    return true
-                } else {
-                    e()
-                }
-            }
-        }
-    })(jQuery);
-    $w = $(window),
-        $d = $(document),
-        $ww = $w.width(),
-        $wh = $w.height(),
-        $wt = $w.scrollTop(),
-        $wb = $wt + $wh;
-
-    var resizedevam = false;
-    $w.on("resize", function () {
-        if (!resizedevam) {
-            $w.trigger("resizeBasinda");
-            resizedevam = true;
-        }
-
-        $.doTimeout("resizebitir", 190, function () {
-            $(window).trigger("resizeSonunda");
-            resizedevam = false;
-        })
-    });
-    var ilkWw = 0, ilkWh = 0;
-    $w.on("resizeBasinda", function () {
-        ilkWw = $ww;
-        ilkWh = $wh;
-    });
-    $w.on("resizeSonunda", function () {
-        $ww = $w.width(),
-            $wh = $w.height(),
-            $wb = $wt + $wh;
-
-        if (ilkWw != $ww) {
-            $w.trigger("genDegisti");
-
-            if (ilkWw < $ww)
-                $w.trigger("genisledi");
-            else
-                $w.trigger("daraldi");
-        }
-        if (ilkWh != $wh) {
-            $w.trigger("yukDegisti");
-
-            if (ilkWh < $wh)
-                $w.trigger("uzadi");
-            else
-                $w.trigger("kisaldi");
-        }
-    });
-
-    //----------------------------------------------------------------------------------------------------------------//
-    //SWIPE PARMAK KAYDIRMA HAREKETLERI
+    //SWIPE ACTION
 
     var swipeDeadZone = 50,
         holdTime = 1000;
