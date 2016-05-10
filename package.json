@@ -1,15 +1,17 @@
 {
   "name": "responsive-layout",
-  "version": "0.1.8",
+  "version": "0.2.0",
   "dependencies": {
-    "gulp":"latest",
-    "gulp-sass":"latest",
-    "gulp-autoprefixer":"latest",
-    "gulp-jsmin":"latest",
-    "gulp-jade":"latest",
-    "gulp-uglify":"latest",
-    "gulp-concat":"latest",
-    "gulp-rename":"latest",
-    "browser-sync":"latest"
+    "browser-sync": "latest",
+    "gulp": "latest",
+    "gulp-autoprefixer": "latest",
+    "gulp-concat": "latest",
+    "gulp-jade": "latest",
+    "gulp-jsmin": "latest",
+    "gulp-rename": "latest",
+    "gulp-sass": "latest",
+    "gulp-uglify": "latest",
+    "jquery": "^2.2.3",
+    "owl-carousel-2-beta": "^2.1.2"
   }
 }
