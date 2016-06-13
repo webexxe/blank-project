@@ -70,6 +70,7 @@ gulp.task('scripts', function () {
 
 gulp.task('browser-sync', function () {
     browserSync({
+        files: "www/css/*.css",
         server: {
             baseDir: "www/"
         },

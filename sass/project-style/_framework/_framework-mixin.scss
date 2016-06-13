@@ -7,54 +7,155 @@ $devices-sm: $screen-md - 1;
 $devices-xs: $screen-sm - 1;
 $devices-xxs: 374px;
 
+// CROSS BROWSER MIXINS
+// ---------------------------------------------------------------------------------------------------------------------
+@mixin transform($transforms) {
+  -webkit-transform: $transforms;
+  -moz-transform: $transforms;
+  -ms-transform: $transforms;
+  -o-transform: $transforms;
+  transform: $transforms;
+}
+
+@mixin transition($transition: all 200ms ease) {
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition;
+}
+
+@mixin filter($filter) {
+  -webkit-filter: $filter;
+  filter: $filter;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin box-shadow($shadow...) {
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+@mixin opacity($opacity) {
+  filter: alpha(opacity=$opacity * 100);
+  opacity: $opacity;
+}
+
+@mixin rotate($rotate) {
+  -webkit-transform: rotate($rotate);
+  -moz-transform: rotate($rotate);
+  -ms-transform: rotate($rotate);
+  -o-transform: rotate($rotate);
+}
+
+//- FLEX MIXINS -
+
+@mixin flex {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@mixin flex-direction($direction) {
+  @if $direction == column-reverse {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+  } @else {
+    -webkit-flex-direction: $direction;
+    -ms-flex-direction: $direction;
+  }
+  flex-direction: $direction;
+}
+
+@mixin flex-wrap($wrap) {
+  -webkit-flex-wrap: $wrap;
+  -ms-flex-wrap: $wrap;
+  flex-wrap: $wrap;
+}
+
+@mixin align-items($align) {
+  @if $align == flex-start {
+    -ms-flex-align: start;
+  } @else if $align == flex-end {
+    -ms-flex-align: end;
+  } @else {
+    -ms-flex-align: $align;
+  }
+  -webkit-align-items: $align;
+  align-items: $align;
+}
+
+@mixin justify-content($justify) {
+  @if $justify == flex-start {
+    -ms-flex-pack: start;
+  } @else if $justify == flex-end {
+    -ms-flex-pack: end;
+  } @else if $justify == space-between and $justify = space-around {
+    -ms-flex-pack: justify;
+  } @else {
+    -ms-flex-pack: $justify;
+  }
+  -webkit-justify-content: $justify;
+  justify-content: $justify;
+}
+
+@mixin align-content($align) {
+  @if $align == flex-start {
+    -ms-flex-pack: start;
+  } @else if $align == flex-end {
+    -ms-flex-pack: end;
+  } @else if $align == space-between and $align = space-around {
+    -ms-flex-pack: justify;
+  } @else {
+    -ms-flex-line-pack: $align;
+  }
+  -webkit-align-content: $align;
+  align-content: $align;
+}
+
+@mixin align-self($align) {
+  @if $align == flex-start {
+    -ms-flex-item-align: start;
+  } @else if $align == flex-end {
+    -ms-flex-item-align: end;
+  } @else {
+    -ms-flex-item-align: $align;
+  }
+  -webkit-align-self: $align;
+  align-self: $align;
+
+}
+
 // HOVER MIXINS
 // ---------------------------------------------------------------------------------------------------------------------
-@mixin hvrL($default, $value){
-	@include anims(200ms);
-	box-shadow: inset 0 0 0 500px rgba(255, 255, 255, $default);
+@mixin hoverLight($default:0.0, $value:0.3) {
+  @include transition(all 200ms ease);
+  @include box-shadow(inset 0 0 0 500px rgba(255, 255, 255, $default));
 
-	&:hover{
-		box-shadow: inset 0 0 0 500px rgba(255, 255, 255, $value);
-	}
+  &:hover {
+    @include box-shadow(inset 0 0 0 500px rgba(255, 255, 255, $value));
+  }
 }
 
-@mixin hvrD($default, $value){
-	@include anims(200ms);
-	box-shadow: inset 0 0 0 500px rgba(0, 0, 0, $default);
+@mixin hoverDark($default:0.0, $value:0.3) {
+  @include transition(all 200ms ease);
+  @include box-shadow(inset 0 0 0 500px rgba(0, 0, 0, $default));
 
-	&:hover{
-		box-shadow: inset 0 0 0 500px rgba(0, 0, 0, $value);
-	}
+  &:hover {
+    @include box-shadow(inset 0 0 0 500px rgba(0, 0, 0, $value));
+  }
 }
 
-@mixin hvrO($default, $value){
-	@include anims(200ms);
-	opacity: $default;
+@mixin hoverOpacity($default:0.0, $value:0.3) {
+  @include transition(all 200ms ease);
+  @include opacity($default);
 
-	&:hover{
-		opacity: $value;
-	}
-}
-
-// ANIMATE MIXIN
-// ---------------------------------------------------------------------------------------------------------------------
-@mixin anims($animMS) {
-	transition: all $animMS ease;
-}
-
-// BORDER RADIUS MIXIN
-// ---------------------------------------------------------------------------------------------------------------------
-@mixin bradius($radiusPX) {
-	border-radius: $radiusPX;
-}
-
-@mixin bradiusCustom(
-	$radiusPXa,
-	$radiusPXb,
-	$radiusPXc,
-	$radiusPXd) {
-		border-top-left-radius: $radiusPXa;
-		border-top-right-radius: $radiusPXb;
-		border-bottom-right-radius: $radiusPXc;
-		border-bottom-left-radius: $radiusPXd;
+  &:hover {
+    @include opacity($value);
+  }
 }

@@ -1,7 +1,7 @@
 // FRAMEWORK RESET _framework.scss
 a {
   color: $colorB;
-  @include anims(200ms);
+  @include transition(all 200ms ease);
 }
 
 a:-webkit-any-link {
