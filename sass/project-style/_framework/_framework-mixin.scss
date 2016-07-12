@@ -55,7 +55,7 @@ $devices-xxs: 374px;
 
 //- FLEX MIXINS -
 
-@mixin flex {
+@mixin display-flex {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;

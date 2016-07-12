@@ -6,7 +6,6 @@ var vendor_js = [
         //JS LIB FOLDER
         'js/lib/smothScroll.min.js'
     ],
-
     gulp = require('gulp'),
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
@@ -15,6 +14,8 @@ var vendor_js = [
     uglify = require('gulp-uglify'),
     concat = require('gulp-concat'),
     rename = require('gulp-rename'),
+    imagemin = require('gulp-imagemin'),
+    pngquant = require('imagemin-pngquant'),
     browserSync = require('browser-sync'),
     reload = browserSync.reload;
 
@@ -26,7 +27,6 @@ gulp.task('jade', function () {
         }))
         .pipe(gulp.dest('www/'))
         .pipe(reload({stream: true}))
-
 });
 
 gulp.task('sass', function () {
@@ -65,7 +65,16 @@ gulp.task('scripts', function () {
         .pipe(concat('vendor.js'))
         .pipe(gulp.dest('www/js'))
         .pipe(reload({stream: true}))
+});
 
+gulp.task('imgMin', function () {
+    return gulp.src('img/**/*')
+        .pipe(imagemin({
+            progressive: true,
+            svgoPlugins: [{removeViewBox: false}],
+            use: [pngquant()]
+        }))
+        .pipe(gulp.dest('www/img'));
 });
 
 gulp.task('browser-sync', function () {
@@ -83,6 +92,7 @@ gulp.task('watch', function () {
     gulp.watch('sass/**/*.scss', ['sass', 'cssprefix']);
     //gulp.watch(['js/**/*.js', '!js/**/_*.js'], ['jsMin']);
     gulp.watch('js/*.js', ['scripts']);
+    gulp.watch('img/**/*', ['imgMin']);
 });
 
-gulp.task('default', ['jade', 'sass', 'cssprefix', /*'jsMin',*/ 'scripts', 'browser-sync', 'watch']);
+gulp.task('default', ['jade', 'sass', 'cssprefix', /*'jsMin',*/ 'scripts', 'imgMin', 'browser-sync', 'watch']);

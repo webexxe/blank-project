@@ -6,11 +6,13 @@
     "gulp": "latest",
     "gulp-autoprefixer": "latest",
     "gulp-concat": "latest",
+    "gulp-imagemin": "^3.0.1",
     "gulp-jade": "latest",
     "gulp-jsmin": "latest",
     "gulp-rename": "latest",
     "gulp-sass": "latest",
     "gulp-uglify": "latest",
+    "imagemin-pngquant": "^5.0.0",
     "jquery": "^2.2.3",
     "owl-carousel-2-beta": "^2.1.2"
   }
