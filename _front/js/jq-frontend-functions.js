@@ -12,6 +12,69 @@ $(function () {
     }
 
     //----------------------------------------------------------------------------------------------------------------//
+    //STRING CONVERTER (TR SUPPORT)
+    String.prototype.strToUpper = function () {
+        var string = this;
+        var letters = {
+            "i": "İ",
+            "ı": "I",
+            "ş": "Ş",
+            "ğ": "Ğ",
+            "ü": "Ü",
+            "ö": "Ö",
+            "ç": "Ç"
+        };
+        string = string.replace(/(([iışğüçö]))+/g, function (letter) {
+            return letters[letter];
+        });
+        return string.toUpperCase();
+    };
+    String.prototype.strToLower = function () {
+        var string = this;
+        var letters = {
+            "İ": "i",
+            "I": "ı",
+            "Ş": "ş",
+            "Ğ": "ğ",
+            "Ü": "ü",
+            "Ö": "ö",
+            "Ç": "ç"
+        };
+        string = string.replace(/(([İIŞĞÜÇÖ]))+/g, function (letter) {
+            return letters[letter];
+        });
+        return string.toLowerCase();
+    };
+    String.prototype.strToCapitalize = function (all) {
+        var string = this;
+        if (all == true) {
+            return string.split(" ").map(function (i) {return i[0].strToUpper() + i.substring(1)}).join(" ");
+        } else {
+            return string.charAt(0).strToUpper() + string.slice(1);
+        }
+    };
+    String.prototype.strToUrl = function () {
+        var string = this;
+        string = string.replace(/ /g, "-");
+        string = string.replace(/İ/g, "i");
+        string = string.replace(/I/g, "i");
+        string = string.replace(/ı/g, "i");
+        string = string.replace(/ğ/g, "g");
+        string = string.replace(/Ğ/g, "g");
+        string = string.replace(/ü/g, "u");
+        string = string.replace(/Ü/g, "u");
+        string = string.replace(/ş/g, "s");
+        string = string.replace(/Ş/g, "s");
+        string = string.replace(/ö/g, "o");
+        string = string.replace(/Ö/g, "o");
+        string = string.replace(/ç/g, "c");
+        string = string.replace(/Ç/g, "c");
+        string = string.replace(/[^a-z0-9-]/gi, '');
+        return string.toLowerCase();
+
+    };
+
+    //----------------------------------------------------------------------------------------------------------------//
     //SCROLL GO TO
 
     // DIV BUTTON

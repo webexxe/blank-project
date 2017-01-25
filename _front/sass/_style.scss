@@ -1,0 +1,13 @@
+// STIL FRAMEWORK - style.scss
+@import "project-style/_framework/framework-color";
+@import "project-style/_framework/framework-mixin";
+@import "project-style/_framework/framework-class";
+@import "project-style/_framework/framework";
+
+// STIL CSS - style.scss
+@import "project-style/header";
+@import "project-style/footer";
+@import "project-style/style";
+@import "project-style/media-devices";
+
+// STIL MODULLER - style.scss

@@ -3,8 +3,7 @@
     Style   - Responsive Layout
     Author  - Emre Tekin
     Url     - github.com/webexxe/blank-project
-    Update  - 13-06-2016
-    Ver     - 0.2.1
+    Update  - 25-01-2017
 
 */
 
@@ -36,11 +35,11 @@ $s_font-awesome: true;
     BOOTSTRAP
 
 */
-@import "_bootstrap";
+@import "bootstrap";
 
 /*!
 
 	WEB STYLE
 
 */
-@import "_style";
+@import "style";

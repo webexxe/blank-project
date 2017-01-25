@@ -95,7 +95,7 @@ $devices-xxs: 374px;
     -ms-flex-pack: start;
   } @else if $justify == flex-end {
     -ms-flex-pack: end;
-  } @else if $justify == space-between and $justify = space-around {
+  } @else if $justify == space-between and $justify == space-around {
     -ms-flex-pack: justify;
   } @else {
     -ms-flex-pack: $justify;
@@ -109,7 +109,7 @@ $devices-xxs: 374px;
     -ms-flex-pack: start;
   } @else if $align == flex-end {
     -ms-flex-pack: end;
-  } @else if $align == space-between and $align = space-around {
+  } @else if $align == space-between and $align == space-around {
     -ms-flex-pack: justify;
   } @else {
     -ms-flex-line-pack: $align;
