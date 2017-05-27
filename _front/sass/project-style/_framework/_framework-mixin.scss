@@ -29,7 +29,7 @@ $devices-xxs: 374px;
   filter: $filter;
 }
 
-@mixin border-radius($radius) {
+@mixin border-radius($radius: 3px) {
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
   border-radius: $radius;
@@ -54,7 +54,6 @@ $devices-xxs: 374px;
 }
 
 //- FLEX MIXINS -
-
 @mixin display-flex {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -128,7 +127,6 @@ $devices-xxs: 374px;
   }
   -webkit-align-self: $align;
   align-self: $align;
-
 }
 
 // HOVER MIXINS

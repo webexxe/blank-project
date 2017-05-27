@@ -1,7 +1,8 @@
 // FRAMEWORK RESET _framework.scss
+
 a {
   color: $colorB;
-  @include transition(all 200ms ease);
+  @include transition();
 }
 
 a:-webkit-any-link {
@@ -12,24 +13,29 @@ a:-moz-any-link {
   text-decoration: none;
 }
 
+*:active,
 *:focus,
-*:visited,
-*:active {
+*:visited {
   outline: none;
 }
 
-a:hover,
 a:active,
+a:hover,
 a:visited {
   text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
 }
 
-ul,
-li {
+li,
+ul {
   padding: 0;
   margin: 0;
   list-style: none;
@@ -53,11 +59,12 @@ table {
     border-bottom: 1px solid #d0d0d0;
   }
 
-  td, th {
+  td,
+  th {
     padding: 10px;
     display: table-cell;
     text-align: left;
     vertical-align: middle;
-    border-radius: 2px;
+    @include border-radius(2px);
   }
 }
