@@ -1,14 +1,16 @@
 $(function () {
 
     //----------------------------------------------------------------------------------------------------------------//
-    // MOBIL - DESKTOP
+    // MOBIL - DESKTOP | WINDOWS-OS
 
     var mobile = (/iphone|ipod|ipad|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));
+    var osWindows = (/windows\snt/i.test(navigator.userAgent.toLowerCase()));
+
     if (mobile) {
         $("body").addClass("mobil");
     } else {
         $("body").addClass("desktop");
-        smothScroll();
+        if (osWindows) smothScroll();
     }
 
     //----------------------------------------------------------------------------------------------------------------//
@@ -48,7 +50,9 @@ $(function () {
     String.prototype.strToCapitalize = function (all) {
         var string = this;
         if (all == true) {
-            return string.split(" ").map(function (i) {return i[0].strToUpper() + i.substring(1)}).join(" ");
+            return string.split(" ").map(function (i) {
+                return i[0].strToUpper() + i.substring(1)
+            }).join(" ");
         } else {
             return string.charAt(0).strToUpper() + string.slice(1);
         }
