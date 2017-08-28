@@ -3,21 +3,24 @@
     Style   - Responsive Layout
     Author  - Emre Tekin
     Url     - github.com/webexxe/blank-project
-    Update  - 27-05-2017
+    Update  - 28-08-2017
 
 */
 
 // SETTINGS
 $s_font-roboto: true;
 $s_font-open-sans: false;
-$s_font-awesome: true;
+$s_font-awesome: false;
+$s_font-ionicons: false;
+
+//** Number of columns in the grid.
+$grid-columns: 24;  //12 !default;
 
 /*!
 
-    FONTS
+    FONTS-CDN
 
 */
-
 @if $s_font-roboto == true {
   @import url(http://fonts.googleapis.com/css?family=Roboto:500,900italic,900,400italic,100,700italic,300,700,500italic,100italic,300italic,400&subset=latin,latin-ext);
 }
@@ -30,6 +33,10 @@ $s_font-awesome: true;
   @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
 }
 
+@if $s_font-ionicons == true {
+  @import url(http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+}
+
 /*!
 
     BOOTSTRAP
@@ -37,9 +44,16 @@ $s_font-awesome: true;
 */
 @import "bootstrap";
 
-/*!
+/*! 
 
-	WEB STYLE
+    FONTS-FILE
 
 */
-@import "style";
+@import "fonts";
+
+/*!
+
+    PROJECT-STYLE
+
+*/
+@import "project-style";

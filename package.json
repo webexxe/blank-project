@@ -1,8 +1,11 @@
 {
-  "name": "Blank-Project",
-  "version": "0.2.1",
+  "name": "blank-project",
+  "version": "0.2.3",
   "description": "Responsive Layout",
   "main": "gulpfile.js",
+  "scripts": {
+    "postinstall": "gulp"
+  },
   "dependencies": {
     "jquery": "^1.8.3"
   },

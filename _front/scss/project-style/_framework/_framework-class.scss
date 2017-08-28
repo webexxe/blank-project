@@ -62,6 +62,11 @@ ul:after {
 // BOX VERTICAL STATUS
 // ---------------------------------------------------------------------------------------------------------------------
 
+.v-full {
+  @include display-flex();
+  @include flex-wrap(wrap);
+}
+
 .v-bottom,
 .v-middle,
 .v-top {
